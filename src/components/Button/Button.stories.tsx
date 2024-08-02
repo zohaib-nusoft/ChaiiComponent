@@ -1,24 +1,3 @@
-// import type { Meta, StoryObj } from "@storybook/react";
-// import Button from "./Button";
-
-// const meta: Meta<typeof Button> = {
-//   title: "Components/Button",
-//   component: Button,
-//   argTypes: {
-//     textColor: { control: "color" },
-//   },
-// };
-
-// type Story = StoryObj<typeof Button>;
-
-// export const Primary: Story = {
-//   args: {
-//     label: "Primary 😃",
-//   },
-// };
-
-// export default meta;
-
 import type { Meta, StoryObj } from "@storybook/react";
 import ChaiiButton from "./Button";
 
@@ -26,7 +5,6 @@ const meta: Meta<typeof ChaiiButton> = {
   title: "Components/Button",
   component: ChaiiButton,
   argTypes: {
-    // classname: CSS,
     btn_class: {
       control: { type: "select" },
       options: ["filled_btn_large", "filled_btn", "white_btn"],
