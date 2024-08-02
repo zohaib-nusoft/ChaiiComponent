@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "typeRoots": ["./node_modules/@types"],
+    "types": [
+      "detect-port",
+      "diff",
+      "ejs",
+      "normalize-package-data",
+      "pretty-hrtime"
+    ],
+    // other options
+    "target": "es5",
+    "outDir": "lib",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "ES6",
+      "ScriptHost",
+      "ES2016.Array.Include"
+    ],
+    "declaration": true,
+    "declarationDir": "lib",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react"
+  },
+  "include": ["src", "types.d.ts"],
+  "exclude": ["node_modules", "lib"]
+}
