@@ -3,7 +3,7 @@ import classNames from "classnames";
 import React from "react";
 import styles from "./Button.module.scss";
 interface ButtonProps {
-  btn_class?: "filled_btn_large" | "filled_btn" | "white_btn";
+  btn_class?: "filled_btn_large" | "filled_btn" | "white_btn" | "round_btn";
   label?: string;
   btn_Type?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent) => void;
@@ -20,11 +20,7 @@ const ChaiiButton: React.FC<ButtonProps> = ({
   console.log(buttonClass);
 
   return (
-    <Button
-      // onClick={onClick}
-      htmlType={btn_Type}
-      className={`${buttonClass}`}
-    >
+    <Button htmlType={btn_Type} className={`${buttonClass}`}>
       <Text className={`btn_text`}>{label}</Text>
     </Button>
   );

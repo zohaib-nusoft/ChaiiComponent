@@ -7,7 +7,7 @@ const meta: Meta<typeof ChaiiButton> = {
   argTypes: {
     btn_class: {
       control: { type: "select" },
-      options: ["filled_btn_large", "filled_btn", "white_btn"],
+      options: ["filled_btn_large", "filled_btn", "white_btn", "round_btn"],
     },
     label: { control: "text" },
     btn_Type: {
@@ -39,6 +39,14 @@ export const White: Story = {
   args: {
     btn_class: "white_btn",
     label: "White Button",
+    btn_Type: "button",
+  },
+};
+
+export const Round: Story = {
+  args: {
+    btn_class: "round_btn",
+    label: "Round Button",
     btn_Type: "button",
   },
 };
