@@ -1,10 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900");
 @import "../../colours.scss";
+@import "../../sharedStyles.scss";
 
-* {
-  font-family: Inter;
-  margin: 0;
-}
 .breadcrumb-wrapper {
   padding: 1rem 1.5rem;
   background: $white;
