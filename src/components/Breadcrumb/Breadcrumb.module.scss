@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900");
+@import "../../colours.scss";
 
 * {
   font-family: Inter;
@@ -6,8 +7,7 @@
 }
 .breadcrumb-wrapper {
   padding: 1rem 1.5rem;
-  // background: var(--white);
-  background: white;
+  background: $white;
   height: min-content;
   text-transform: capitalize;
 
@@ -22,14 +22,12 @@
       &:not(:last-child)::after {
         content: "/";
         padding: 0 0.5rem;
-        // color: var(--gray);
-        color: gray;
+        color: $grey;
       }
 
       a {
         text-decoration: none;
-        // color: var(--primary-color);
-        color: lightblue;
+        color: $light-blue;
 
         &:hover {
           text-decoration: underline;
