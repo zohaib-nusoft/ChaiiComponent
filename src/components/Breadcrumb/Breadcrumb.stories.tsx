@@ -9,6 +9,10 @@ const meta: Meta<typeof Breadcrumb> = {
   parameters: {
     layout: "fullscreen",
   },
+  argTypes: {
+    rootLabel: { control: "text" },
+    rootPath: { control: "text" },
+  },
 };
 
 type Story = StoryObj<typeof Breadcrumb>;
