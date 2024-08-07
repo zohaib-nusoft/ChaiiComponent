@@ -15,7 +15,7 @@ const ChaiiDateRange: React.FC<Props> = ({ label, name }) => {
     <Form.Item
       label={
         label ? (
-          <span style={{ marginBottom: "-0.8rem" }}>
+          <span className={styles.labelMargin}>
             <Text className={styles.inputLabelStyle}>{label}</Text>
           </span>
         ) : null

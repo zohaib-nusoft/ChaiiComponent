@@ -8,8 +8,8 @@
   text-transform: capitalize;
 
   .breadcrumb {
-    display: flex;
-    flex-wrap: wrap;
+    @extend .d-flex;
+    @extend .flex-wrap;
     padding: 0;
     margin: 0;
     list-style: none;
