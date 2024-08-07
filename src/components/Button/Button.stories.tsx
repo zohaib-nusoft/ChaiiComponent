@@ -7,7 +7,7 @@ const meta: Meta<typeof ChaiiButton> = {
   argTypes: {
     btnClass: {
       control: { type: "select" },
-      options: ["filled_btn_large", "filled_btn", "white_btn", "round_btn"],
+      options: ["filledBtnLarge", "filledBtn", "whiteBtn", "roundBtn"],
     },
     label: { control: "text" },
     btnType: {
@@ -21,15 +21,15 @@ type Story = StoryObj<typeof ChaiiButton>;
 
 export const Primary: Story = {
   args: {
-    btnClass: "filled_btn",
-    label: "Primary 😃",
+    btnClass: "filledBtn",
+    label: "Primary",
     btnType: "button",
   },
 };
 
 export const Large: Story = {
   args: {
-    btnClass: "filled_btn_large",
+    btnClass: "filledBtnLarge",
     label: "Large Button",
     btnType: "button",
   },
@@ -37,7 +37,7 @@ export const Large: Story = {
 
 export const White: Story = {
   args: {
-    btnClass: "white_btn",
+    btnClass: "whiteBtn",
     label: "White Button",
     btnType: "button",
   },
@@ -45,7 +45,7 @@ export const White: Story = {
 
 export const Round: Story = {
   args: {
-    btnClass: "round_btn",
+    btnClass: "roundBtn",
     label: "Round Button",
     btnType: "button",
   },

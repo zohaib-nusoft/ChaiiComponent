@@ -4,7 +4,7 @@ import React from "react";
 import styles from "./Button.module.scss";
 
 interface ButtonProps {
-  btnClass?: "filled_btn_large" | "filled_btn" | "white_btn" | "round_btn";
+  btnClass?: "filledBtnLarge" | "filledBtn" | "whiteBtn" | "roundBtn";
   label?: string;
   btnType?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent) => void;
@@ -13,7 +13,7 @@ interface ButtonProps {
 const { Text } = Typography;
 
 const ChaiiButton: React.FC<ButtonProps> = ({
-  btnClass = "filled_btn",
+  btnClass = "filledBtn",
   label = "Button",
   btnType = "button",
   onClick,
