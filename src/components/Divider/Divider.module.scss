@@ -1,0 +1,15 @@
+@import "../../sharedStyles.scss";
+@import "../../colours.scss";
+
+.dividerStyles {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.verticalDivider {
+  width: 0.0625rem;
+  background-color: $border;
+  margin: 0 0.5rem;
+  display: inline-block;
+  height: 6.25rem;
+}

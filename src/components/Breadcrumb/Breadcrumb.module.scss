@@ -1,0 +1,34 @@
+@import "../../colours.scss";
+@import "../../sharedStyles.scss";
+
+.breadcrumb-wrapper {
+  padding: 1rem 1.5rem;
+  background: $white;
+  height: min-content;
+  text-transform: capitalize;
+
+  .breadcrumb {
+    @extend .d-flex;
+    @extend .flex-wrap;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    .breadcrumb-item {
+      &:not(:last-child)::after {
+        content: "/";
+        padding: 0 0.5rem;
+        color: $grey;
+      }
+
+      a {
+        text-decoration: none;
+        color: $light-blue;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

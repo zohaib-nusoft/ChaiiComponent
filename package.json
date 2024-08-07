@@ -55,7 +55,10 @@
     "build": "rollup -c"
   },
   "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "antd": "^5.19.4",
-    "classnames": "^2.5.1"
+    "bootstrap": "^5.3.3",
+    "classnames": "^2.5.1",
+    "react-router-dom": "^6.26.0"
   }
 }
