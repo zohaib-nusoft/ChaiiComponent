@@ -1,0 +1,35 @@
+@import "../../sharedStyles.scss";
+@import "../../colours.scss";
+
+.container {
+  position: relative;
+  height: 100vh; // Full viewport height
+  width: 100%;
+}
+
+.leftCol {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  padding: 0; // Remove any padding
+}
+
+.rightCol {
+  background-color: $white;
+  height: 100%;
+}
+
+.formContainer {
+  max-width: 400px; // Adjust as needed
+  padding: 2rem;
+}
+
+.heading {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.submitButton {
+  width: 100%;
+}

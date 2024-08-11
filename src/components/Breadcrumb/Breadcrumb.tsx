@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./Breadcrumb.module.scss";
+import "../../sharedStyles.scss"; // Importing Bootstrap
 
 interface BreadcrumbProps {
   rootLabel?: string;
@@ -19,7 +20,10 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     const breadcrumbText = decodeURIComponent(snippet.replace(/-/g, " "));
 
     return (
-      <li className={classNames(styles["breadcrumb-item"])} key={url}>
+      <li
+        className={classNames("d-inline-flex", styles["breadcrumb-item"])}
+        key={url}
+      >
         <Link to={url}>{breadcrumbText}</Link>
       </li>
     );
@@ -27,12 +31,18 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
 
   return (
     <nav
-      className={classNames(styles["breadcrumb-wrapper"])}
+      className={classNames(
+        "d-flex",
+        "flex-wrap",
+        styles["breadcrumb-wrapper"]
+      )}
       aria-label="breadcrumb"
     >
-      <ol className={classNames(styles["breadcrumb"])}>
+      <ol className={classNames("d-flex", "flex-wrap", styles["breadcrumb"])}>
         {rootPath && (
-          <li className={classNames(styles["breadcrumb-item"])}>
+          <li
+            className={classNames("d-inline-flex", styles["breadcrumb-item"])}
+          >
             <Link to={rootPath}>{rootLabel}</Link>
           </li>
         )}

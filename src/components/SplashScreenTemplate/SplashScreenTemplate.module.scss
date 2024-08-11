@@ -1,0 +1,35 @@
+@import "../../sharedStyles.scss";
+@import "../../colours.scss";
+
+.containerLink {
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  background-color: var(--background-overlay);
+  height: 100vh; // Ensure it takes full viewport height
+}
+
+.hasBackground {
+  background-image: url("");
+}
+
+.logo {
+  margin-bottom: 1rem; // Add space between the logo and the text
+  max-width: 80%; // Ensure the logo is not too large
+  max-height: 20%; // Adjust the height to maintain aspect ratio
+}
+
+.copyrightContainer {
+  position: absolute;
+  bottom: 1rem; // Adjusted for better readability
+  right: 1rem; // Adjusted for better readability
+}
+
+.copyrightText {
+  color: var(--white);
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem; // 14px
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375rem; // 22px
+}

@@ -3,6 +3,7 @@ import { Form, Input as AntInput, InputNumber, Typography } from "antd";
 import classNames from "classnames";
 import TextArea from "antd/es/input/TextArea";
 import styles from "./Input.module.scss";
+import "../../sharedStyles.scss"; // Importing Bootstrap
 
 interface inputProps {
   suffix?: React.ReactNode;
@@ -39,19 +40,17 @@ const ChaiInput: React.FC<inputProps> = ({
     <Form.Item
       label={
         <span style={{ marginBottom: "-0.8rem" }}>
-          <Text className={`${classNames(styles["inputLabelStyle"])}`}>
-            {label}
-          </Text>
+          <Text className={styles.inputLabelStyle}>{label}</Text>
         </span>
       }
       labelCol={{ span: label ? 24 : 0 }}
       initialValue={initialValue}
-      className={`${classNames(styles["formDiv"])}`}
+      className={styles.formDiv}
       name={name}
     >
       {inputType === "textArea" ? (
         <TextArea
-          showCount={height === "small" ? false : true}
+          showCount={height !== "small"}
           maxLength={maxLength}
           placeholder={placeholder}
           style={{
@@ -69,7 +68,10 @@ const ChaiInput: React.FC<inputProps> = ({
           type="password"
           defaultValue={initialValue}
           placeholder={placeholder}
-          className={`${classNames(styles["inputStyles"])}`}
+          className={classNames(
+            styles.inputStyles,
+            "d-flex align-items-center"
+          )}
         />
       ) : (
         <AntInput
@@ -78,7 +80,10 @@ const ChaiInput: React.FC<inputProps> = ({
           defaultValue={initialValue}
           placeholder={placeholder}
           suffix={suffix}
-          className={`${classNames(styles["inputStyles"])}`}
+          className={classNames(
+            styles.inputStyles,
+            "d-flex align-items-center"
+          )}
         />
       )}
     </Form.Item>
