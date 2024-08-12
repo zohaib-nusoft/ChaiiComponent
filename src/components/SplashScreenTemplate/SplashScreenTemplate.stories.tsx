@@ -12,6 +12,7 @@ const meta: Meta<typeof SplashScreenTemplate> = {
   argTypes: {
     backgroundImagePath: { control: "text" },
     logoPath: { control: "text" },
+    copyrightText: { control: "text" },
   },
 };
 
@@ -41,6 +42,7 @@ export const CustomRoot: Story = {
     children: "Custom Splash Screen Content",
     backgroundImagePath: "/assets/images/background1.jpg",
     logoPath: "/assets/svg/LogoBlack.svg",
+    copyrightText: "© 2024 Your Company. All rights reserved.",
   },
 };
 

@@ -9,6 +9,18 @@ const meta: Meta<typeof InputFieldHeader> = {
     heading: { control: "text" },
     buttonText: { control: "text" },
     onButtonClick: { action: "clicked" },
+    buttonClass: {
+      control: { type: "select" },
+      options: [
+        "filledBtnLarge",
+        "filledBtn",
+        "whiteBtn",
+        "roundBtn",
+        "iconBtnCircle",
+        "iconBtnSquareBlue",
+        "iconBtnSquareGrey",
+      ],
+    },
   },
 };
 
@@ -23,6 +35,25 @@ export const Default: Story = {
   args: {
     heading: "Resource Details",
     buttonText: "Next",
+    buttonClass: "filledBtn", // Default button class
+  },
+};
+
+export const LargeButton: Story = {
+  ...Template,
+  args: {
+    heading: "Resource Details",
+    buttonText: "Next",
+    buttonClass: "filledBtnLarge", // Using a large button
+  },
+};
+
+export const WhiteButton: Story = {
+  ...Template,
+  args: {
+    heading: "Resource Details",
+    buttonText: "Next",
+    buttonClass: "whiteBtn", // Using a white button
   },
 };
 

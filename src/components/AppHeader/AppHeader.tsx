@@ -7,7 +7,7 @@ import {
   GlobalOutlined,
 } from "@ant-design/icons";
 import styles from "./AppHeader.module.scss";
-import "bootstrap/dist/css/bootstrap.min.css"; // Importing Bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const { Header } = Layout;
 
@@ -16,6 +16,7 @@ interface Props {
   isAuthenticated: boolean;
   userName: string;
   notificationsCount: number;
+  avatarImage?: string;
 }
 
 const AppHeader: React.FC<Props> = ({
@@ -23,6 +24,7 @@ const AppHeader: React.FC<Props> = ({
   isAuthenticated,
   userName,
   notificationsCount,
+  avatarImage,
 }) => {
   return (
     <Header
@@ -36,7 +38,13 @@ const AppHeader: React.FC<Props> = ({
           <Badge count={notificationsCount} className={styles.icon}>
             <BellOutlined />
           </Badge>
-          <Avatar className={styles.avatar}>{userName.charAt(0)}</Avatar>
+          <Avatar
+            className={styles.avatar}
+            src={avatarImage} // Use avatarImage if provided
+          >
+            {!avatarImage && userName.charAt(0)}{" "}
+            {/* Show initial if no image */}
+          </Avatar>
           <span className={styles.userName}>{userName}</span>
           <GlobalOutlined className={styles.icon} />
         </div>

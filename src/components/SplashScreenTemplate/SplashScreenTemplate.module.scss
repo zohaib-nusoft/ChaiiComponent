@@ -5,12 +5,11 @@
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
-  background-color: var(--background-overlay);
   height: 100vh; // Ensure it takes full viewport height
 }
 
 .hasBackground {
-  background-image: url("");
+  background-image: url(""); // background added in tsx file given as a prop by user
 }
 
 .logo {
@@ -21,15 +20,15 @@
 
 .copyrightContainer {
   position: absolute;
-  bottom: 1rem; // Adjusted for better readability
-  right: 1rem; // Adjusted for better readability
+  bottom: 1rem;
+  right: 1rem;
 }
 
 .copyrightText {
-  color: var(--white);
+  color: $text-color;
   font-family: "Inter", sans-serif;
-  font-size: 0.875rem; // 14px
+  font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.375rem; // 22px
+  line-height: 1.375rem;
 }

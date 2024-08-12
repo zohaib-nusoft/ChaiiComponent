@@ -3,7 +3,7 @@
 
 .container {
   position: relative;
-  height: 100vh; // Full viewport height
+  height: 100%; // Full viewport height
   width: 100%;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .formContainer {
-  max-width: 400px; // Adjust as needed
+  max-width: 25rem;
   padding: 2rem;
 }
 

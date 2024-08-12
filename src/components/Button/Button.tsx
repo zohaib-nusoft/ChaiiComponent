@@ -1,8 +1,7 @@
-import { Button, Typography } from "antd";
-import classNames from "classnames";
 import React from "react";
+import { Button as AntdButton, Typography } from "antd";
+import classNames from "classnames";
 import styles from "./Button.module.scss";
-import "../../sharedStyles.scss"; // Importing Bootstrap
 
 interface ButtonProps {
   btnClass?:
@@ -16,7 +15,7 @@ interface ButtonProps {
   label?: string;
   btnType?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent) => void;
-  icon?: React.ReactNode; // Optional: You can add this if the button includes an icon
+  icon?: React.ReactNode;
 }
 
 const { Text } = Typography;
@@ -34,11 +33,12 @@ const ChaiiButton: React.FC<ButtonProps> = ({
   );
 
   return (
-    <Button htmlType={btnType} className={buttonClass} onClick={onClick}>
+    <AntdButton htmlType={btnType} className={buttonClass} onClick={onClick}>
       {icon && <span className={styles.icon}>{icon}</span>}{" "}
       {/* Render the icon if provided */}
-      {label && <Text className={styles.btnText}>{label}</Text>}
-    </Button>
+      {label && <Text className="text-center">{label}</Text>}{" "}
+      {/* Center the text */}
+    </AntdButton>
   );
 };
 

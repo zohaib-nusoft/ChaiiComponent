@@ -3,12 +3,13 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import classNames from "classnames";
 import styles from "./SplashScreenTemplate.module.scss";
-import "../../sharedStyles.scss"; // Importing Bootstrap
+import "../../sharedStyles.scss";
 
 interface Props {
   children?: React.ReactNode;
   backgroundImagePath: string;
   logoPath?: string;
+  copyrightText?: string;
 }
 
 const { Content } = Layout;
@@ -18,6 +19,7 @@ const SplashScreenTemplate: React.FC<Props> = ({
   children,
   backgroundImagePath,
   logoPath,
+  copyrightText,
 }) => {
   const { t } = useTranslation();
 
@@ -39,9 +41,11 @@ const SplashScreenTemplate: React.FC<Props> = ({
     >
       {logoPath && <img src={logoPath} alt="Logo" className={styles.logo} />}
       {children}
-      <div className={styles.copyrightContainer}>
-        <Text className={styles.copyrightText}>{t("heading.copyright")}</Text>
-      </div>
+      {copyrightText && (
+        <div className={styles.copyrightContainer}>
+          <Text className={styles.copyrightText}>{copyrightText}</Text>
+        </div>
+      )}
     </Content>
   );
 };

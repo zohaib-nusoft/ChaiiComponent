@@ -10,6 +10,7 @@ const meta: Meta<typeof AppHeader> = {
     isAuthenticated: { control: "boolean" },
     userName: { control: "text" },
     notificationsCount: { control: "number" },
+    avatarImage: { control: "text" }, // New control for the avatar image
   },
 };
 
@@ -25,6 +26,16 @@ export const AuthenticatedNoLogo: Story = {
     isAuthenticated: true,
     userName: "Safwan Khan",
     notificationsCount: 14,
+  },
+};
+
+export const AuthenticatedWithAvatarImage: Story = {
+  ...Template,
+  args: {
+    isAuthenticated: true,
+    userName: "Safwan Khan",
+    notificationsCount: 14,
+    avatarImage: "/assets/images/avatar.png", // Example avatar image
   },
 };
 
