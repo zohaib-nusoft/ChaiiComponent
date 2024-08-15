@@ -30,7 +30,6 @@ const AppHeader: React.FC<Props> = ({
 }) => {
   return (
     <Header
-      // className={`d-flex align-items-center justify-content-between ${styles.header}`}
       className={classNames(
         "d-flex align-items-center bg-white justify-content-between",
         styles["header_app"]

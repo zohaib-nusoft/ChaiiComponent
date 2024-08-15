@@ -3,9 +3,6 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-// Define your custom colors
-$white: #ffffff;
-
 // Add the custom white color to the Bootstrap color map
 $theme-colors: map-merge(
   (
