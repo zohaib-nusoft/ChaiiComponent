@@ -1,0 +1,26 @@
+@import "../../sharedStyles.scss";
+@import "../../colours.scss";
+
+.header_app {
+  background: $white !important;
+}
+
+.logo {
+  flex: 0 0 auto;
+}
+
+.icon {
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.avatar {
+  background-color: $black;
+  color: $white;
+  width: 2rem;
+  height: 2rem;
+}
+
+.userName {
+  margin-left: 0.5rem;
+}

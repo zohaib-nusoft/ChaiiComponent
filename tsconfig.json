@@ -8,7 +8,6 @@
       "normalize-package-data",
       "pretty-hrtime"
     ],
-    // other options
     "target": "es5",
     "outDir": "lib",
     "lib": [
@@ -34,6 +33,6 @@
     "noEmit": true,
     "jsx": "react"
   },
-  "include": ["src", "types.d.ts"],
+  "include": ["src", "types.d.ts"], // Ensure this includes your global type definitions
   "exclude": ["node_modules", "lib"]
 }

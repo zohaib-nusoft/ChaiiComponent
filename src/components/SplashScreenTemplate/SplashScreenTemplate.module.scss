@@ -1,0 +1,34 @@
+@import "../../sharedStyles.scss";
+@import "../../colours.scss";
+
+.containerLink {
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: overlay;
+  height: 100%; // Ensure it takes full viewport height
+}
+
+.hasBackground {
+  background-image: url(""); // background added in tsx file given as a prop by user
+}
+
+.logo {
+  margin-bottom: 1rem; // Add space between the logo and the text
+  max-width: 80%; // Ensure the logo is not too large
+  max-height: 20%; // Adjust the height to maintain aspect ratio
+}
+
+.copyrightContainer {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.copyrightText {
+  color: $text-color;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.375rem;
+}

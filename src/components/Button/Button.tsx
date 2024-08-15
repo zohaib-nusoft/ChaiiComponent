@@ -1,13 +1,21 @@
-import { Button, Typography } from "antd";
-import classNames from "classnames";
 import React from "react";
 import styles from "./Button.module.scss";
+import { Button as AntdButton, Typography } from "antd";
+import classNames from "classnames";
 
 interface ButtonProps {
-  btnClass?: "filledBtnLarge" | "filledBtn" | "whiteBtn" | "roundBtn";
+  btnClass?:
+    | "filledBtnLarge"
+    | "filledBtn"
+    | "whiteBtn"
+    | "roundBtn"
+    | "iconBtnCircle"
+    | "iconBtnSquareBlue"
+    | "iconBtnSquareGrey";
   label?: string;
   btnType?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent) => void;
+  icon?: React.ReactNode;
 }
 
 const { Text } = Typography;
@@ -17,13 +25,20 @@ const ChaiiButton: React.FC<ButtonProps> = ({
   label = "Button",
   btnType = "button",
   onClick,
+  icon, // Optional: Pass the icon as a prop if needed
 }) => {
-  const buttonClass = classNames(styles[btnClass]);
+  const buttonClass = classNames(
+    styles[btnClass],
+    "d-flex justify-content-center align-items-center"
+  );
 
   return (
-    <Button htmlType={btnType} className={buttonClass} onClick={onClick}>
-      <Text className={styles.btn_text}>{label}</Text>
-    </Button>
+    <AntdButton htmlType={btnType} className={buttonClass} onClick={onClick}>
+      {icon && <span className={styles.icon}>{icon}</span>}{" "}
+      {/* Render the icon if provided */}
+      {label && <Text className="text-center">{label}</Text>}{" "}
+      {/* Center the text */}
+    </AntdButton>
   );
 };
 
