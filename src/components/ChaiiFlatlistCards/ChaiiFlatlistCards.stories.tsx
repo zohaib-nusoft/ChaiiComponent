@@ -5,16 +5,7 @@ import ChaiiFlatlistCards from ".";
 const meta: Meta<typeof ChaiiFlatlistCards> = {
   title: "Components/ChaiiFlatlistCards",
   component: ChaiiFlatlistCards,
-  argTypes: {
-    data: [
-      {
-        date: `${new Date()}`,
-        heading: "test",
-        location: "test",
-        subText: "test",
-      },
-    ],
-  },
+  argTypes: {},
 };
 
 type Story = StoryObj<typeof ChaiiFlatlistCards>;
