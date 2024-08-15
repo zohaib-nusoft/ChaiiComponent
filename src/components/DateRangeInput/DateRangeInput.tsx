@@ -1,6 +1,8 @@
 import React from "react";
 import { DatePicker, Form, Typography } from "antd";
 import styles from "./DateRangeInput.module.scss";
+import classNames from "classnames";
+import "../../sharedStyles.scss"; // Importing Bootstrap
 
 const { RangePicker } = DatePicker;
 const { Text } = Typography;
@@ -24,7 +26,13 @@ const ChaiiDateRange: React.FC<Props> = ({ label, name }) => {
       className={styles.formDiv}
       name={name}
     >
-      <RangePicker className={styles.rangeInputContainer} />
+      <RangePicker
+        className={classNames(
+          "d-flex",
+          "align-items-center",
+          styles.rangeInputContainer
+        )}
+      />
     </Form.Item>
   );
 };

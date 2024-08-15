@@ -1,0 +1,8 @@
+@import "../../sharedStyles.scss";
+@import "../../colours.scss";
+
+.defaultText {
+  color: $text-color;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}

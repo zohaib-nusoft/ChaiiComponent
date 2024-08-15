@@ -1,0 +1,15 @@
+// src/styles/_custom-bootstrap.scss
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+// Add the custom white color to the Bootstrap color map
+$theme-colors: map-merge(
+  (
+    "white": $white,
+  ),
+  $theme-colors
+);
+
+// Import Bootstrap
+@import "~bootstrap/scss/bootstrap";

@@ -1,0 +1,15 @@
+@import "../../sharedStyles.scss";
+@import "../../colours.scss";
+
+.heading {
+  margin: 0;
+  color: $text-color;
+}
+
+.button {
+  background-color: $primary;
+
+  &:hover {
+    background-color: $hover-border-color;
+  }
+}
