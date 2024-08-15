@@ -7,48 +7,50 @@ import {
   GlobalOutlined,
 } from "@ant-design/icons";
 import styles from "./AppHeader.module.scss";
+import classNames from "classnames";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../../CustomBootstrap.scss";
 
 const { Header } = Layout;
 
 interface Props {
   logo?: React.ReactNode;
   isAuthenticated: boolean;
-  userName: string;
-  notificationsCount: number;
+  userName?: string; // Made optional
+  notificationsCount?: number; // Made optional
   avatarImage?: string;
 }
 
 const AppHeader: React.FC<Props> = ({
   logo,
   isAuthenticated,
-  userName,
-  notificationsCount,
+  userName = "", // Default to empty string
+  notificationsCount = 0, // Default to 0
   avatarImage,
 }) => {
   return (
     <Header
-      className={`d-flex align-items-center justify-content-between ${styles.header}`}
+      // className={`d-flex align-items-center justify-content-between ${styles.header}`}
+      className={classNames(
+        "d-flex align-items-center bg-white justify-content-between",
+        styles["header_app"]
+      )}
     >
       <div className={styles.logo}>{logo}</div>
-      {isAuthenticated && (
+      {isAuthenticated ? (
         <div className="d-flex align-items-center gap-3">
           <SearchOutlined className={styles.icon} />
           <QuestionCircleOutlined className={styles.icon} />
           <Badge count={notificationsCount} className={styles.icon}>
             <BellOutlined />
           </Badge>
-          <Avatar
-            className={styles.avatar}
-            src={avatarImage} // Use avatarImage if provided
-          >
-            {!avatarImage && userName.charAt(0)}{" "}
-            {/* Show initial if no image */}
+          <Avatar className={styles.avatar} src={avatarImage}>
+            {!avatarImage && userName.charAt(0)}
           </Avatar>
           <span className={styles.userName}>{userName}</span>
           <GlobalOutlined className={styles.icon} />
         </div>
-      )}
+      ) : null}
     </Header>
   );
 };

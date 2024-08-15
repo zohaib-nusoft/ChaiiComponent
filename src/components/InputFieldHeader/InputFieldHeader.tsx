@@ -6,8 +6,8 @@ import "../../sharedStyles.scss";
 
 interface Props {
   heading: string;
-  buttonText: string;
-  onButtonClick: () => void; // Callback function for button click
+  buttonText?: string; // Made optional
+  onButtonClick?: () => void; // Made optional
   buttonClass?:
     | "filledBtnLarge"
     | "filledBtn"
@@ -29,11 +29,13 @@ const InputFieldHeader: React.FC<Props> = ({
       <Typography.Title level={4} className={styles.heading}>
         {heading}
       </Typography.Title>
-      <ChaiiButton
-        btnClass={buttonClass}
-        label={buttonText}
-        onClick={onButtonClick}
-      />
+      {buttonText && onButtonClick && (
+        <ChaiiButton
+          btnClass={buttonClass}
+          label={buttonText}
+          onClick={onButtonClick}
+        />
+      )}
     </div>
   );
 };

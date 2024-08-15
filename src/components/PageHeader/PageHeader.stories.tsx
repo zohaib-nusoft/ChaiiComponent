@@ -1,7 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import PageHeader from "./PageHeader";
-import { MemoryRouter } from "react-router-dom";
 
 const meta: Meta<typeof PageHeader> = {
   title: "Components/PageHeader",
@@ -16,11 +15,7 @@ const meta: Meta<typeof PageHeader> = {
 type Story = StoryObj<typeof PageHeader>;
 
 const Template: Story = {
-  render: (args) => (
-    <MemoryRouter initialEntries={["/resources/new"]}>
-      <PageHeader {...args} />
-    </MemoryRouter>
-  ),
+  render: (args) => <PageHeader {...args} />,
 };
 
 export const Default: Story = {

@@ -1,9 +1,8 @@
 @import "../../sharedStyles.scss";
 @import "../../colours.scss";
 
-.header {
-  padding-left: 1rem;
-  background-color: $white;
+.header_app {
+  background: $white !important;
 }
 
 .logo {

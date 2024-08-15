@@ -1,5 +1,7 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Breadcrumb } from "antd";
+import { Link } from "react-router-dom"; // Import only the Link component here
+import { Location } from "history"; // Import the Location type from the history package
 import classNames from "classnames";
 import styles from "./Breadcrumb.module.scss";
 import "../../sharedStyles.scss"; // Importing Bootstrap
@@ -7,49 +9,38 @@ import "../../sharedStyles.scss"; // Importing Bootstrap
 interface BreadcrumbProps {
   rootLabel?: string;
   rootPath?: string;
+  location: Location; // Correctly using the Location type here
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({
+const AppBreadcrumbs: React.FC<BreadcrumbProps> = ({
   rootLabel = "Home",
   rootPath = "/",
+  location,
 }) => {
-  const location = useLocation();
+  // Using the location prop instead of window.location
   const pathSnippets = location.pathname.split("/").filter((i) => i);
+
   const breadcrumbItems = pathSnippets.map((snippet, index) => {
     const url = `/${pathSnippets.slice(0, index + 1).join("/")}`;
     const breadcrumbText = decodeURIComponent(snippet.replace(/-/g, " "));
 
     return (
-      <li
-        className={classNames("d-inline-flex", styles["breadcrumb-item"])}
-        key={url}
-      >
+      <Breadcrumb.Item key={url} className={styles["breadcrumb-item"]}>
         <Link to={url}>{breadcrumbText}</Link>
-      </li>
+      </Breadcrumb.Item>
     );
   });
 
   return (
-    <nav
-      className={classNames(
-        "d-flex",
-        "flex-wrap",
-        styles["breadcrumb-wrapper"]
+    <Breadcrumb className={classNames(styles["breadcrumb-wrapper"])}>
+      {rootPath && (
+        <Breadcrumb.Item className={styles["breadcrumb-item"]}>
+          <Link to={rootPath}>{rootLabel}</Link>
+        </Breadcrumb.Item>
       )}
-      aria-label="breadcrumb"
-    >
-      <ol className={classNames("d-flex", "flex-wrap", styles["breadcrumb"])}>
-        {rootPath && (
-          <li
-            className={classNames("d-inline-flex", styles["breadcrumb-item"])}
-          >
-            <Link to={rootPath}>{rootLabel}</Link>
-          </li>
-        )}
-        {breadcrumbItems}
-      </ol>
-    </nav>
+      {breadcrumbItems}
+    </Breadcrumb>
   );
 };
 
-export default Breadcrumb;
+export default AppBreadcrumbs;

@@ -1,7 +1,7 @@
 import React from "react";
+import styles from "./Button.module.scss";
 import { Button as AntdButton, Typography } from "antd";
 import classNames from "classnames";
-import styles from "./Button.module.scss";
 
 interface ButtonProps {
   btnClass?:

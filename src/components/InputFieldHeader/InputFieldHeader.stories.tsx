@@ -48,12 +48,10 @@ export const LargeButton: Story = {
   },
 };
 
-export const WhiteButton: Story = {
+export const NoButton: Story = {
   ...Template,
   args: {
     heading: "Resource Details",
-    buttonText: "Next",
-    buttonClass: "whiteBtn", // Using a white button
   },
 };
 

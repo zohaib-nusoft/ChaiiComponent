@@ -43,8 +43,6 @@ export const NotAuthenticatedNoLogo: Story = {
   ...Template,
   args: {
     isAuthenticated: false,
-    userName: "",
-    notificationsCount: 0,
   },
 };
 
