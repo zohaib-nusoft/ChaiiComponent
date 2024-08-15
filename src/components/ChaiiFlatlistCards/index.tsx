@@ -26,8 +26,10 @@ const ChaiiFlatlistCards = ({ data, type, logo }: props) => {
             <Row className="w-100">
               <Col span={18}>
                 <Row>
-                  <Col span={3}>{type === "attachment" && logo}</Col>
-                  <Col span={21}>
+                  <Col span={type === "attachment" ? 3 : 0}>
+                    {type === "attachment" && logo}
+                  </Col>
+                  <Col span={type === "attachment" ? 21 : 24}>
                     <Col className="pb-1">
                       <ChaiiText
                         className={classNames(styles.experiance_card_title)}
