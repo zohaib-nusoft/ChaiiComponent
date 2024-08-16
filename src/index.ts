@@ -2,7 +2,7 @@ import AppHeader from "./components/AppHeader/AppHeader";
 import AuthScreenTemplate from "./components/AuthScreenTemplate/AuthScreenTemplate";
 import Breadcrumb from "./components/Breadcrumb/Breadcrumb";
 import Button from "./components/Button/Button";
-import ChaiiFlatlistCards from "./components/ChaiiFlatlistCards";
+import ChaiiFlatlistCards from "./components/ChaiiFlatlistCards/ChaiiFlatlistCards";
 import ChaiiText from "./components/ChaiiText/ChaiiText";
 import DateRangeInput from "./components/DateRangeInput/DateRangeInput";
 import Divider from "./components/Divider/Divider";
