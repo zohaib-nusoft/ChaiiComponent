@@ -36,19 +36,13 @@ const SimpleTable: React.FC<inputProps> = ({
   return (
     <Content className="p-2">
       <Row
-        className={`${styles.tableHeader}`}
-        style={{ alignItems: "center", justifyContent: "space-between" }}
+        className={`d-flex align-items-center justify-content-between ${styles.tableHeader}`}
       >
         <Col className={styles.title}>
           <Text>{title}</Text>
         </Col>
         <Col
-          className={`${styles.controls}`}
-          style={{
-            alignItems: "center",
-            justifyContent: "flex-end",
-            gap: "0.5rem",
-          }}
+          className={`d-flex align-items-center justify-content-end gap-2 ${styles.controls}`}
         >
           <Select
             defaultValue={sortByOptions[0]}
