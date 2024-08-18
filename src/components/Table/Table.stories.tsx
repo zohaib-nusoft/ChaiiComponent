@@ -16,7 +16,12 @@ const Template: Story = {
 export const Default: Story = {
   ...Template,
   args: {
-    data: [{ name: "test", userName: "string", age: "15" }],
+    title: "Resource Augments",
+    sortByOptions: ["Date", "Name", "Status"],
+    data: [
+      { name: "Company A", userName: "user1", age: "15" },
+      { name: "Company B", userName: "user2", age: "20" },
+    ],
     columns: [
       { title: "name", key: "name", dataIndex: "name" },
       { title: "User Name", key: "userName", dataIndex: "userName" },
