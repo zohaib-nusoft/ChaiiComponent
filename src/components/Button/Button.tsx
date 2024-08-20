@@ -9,9 +9,7 @@ interface ButtonProps {
     | "filledBtn"
     | "whiteBtn"
     | "roundBtn"
-    | "iconBtnCircle"
-    | "iconBtnSquareBlue"
-    | "iconBtnSquareGrey";
+    | "iconBtnCircle";
   label?: string;
   btnType?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent) => void;
@@ -22,10 +20,10 @@ const { Text } = Typography;
 
 const ChaiiButton: React.FC<ButtonProps> = ({
   btnClass = "filledBtn",
-  label = "Button",
+  label,
   btnType = "button",
   onClick,
-  icon, // Optional: Pass the icon as a prop if needed
+  icon,
 }) => {
   const buttonClass = classNames(
     styles[btnClass],
@@ -34,10 +32,8 @@ const ChaiiButton: React.FC<ButtonProps> = ({
 
   return (
     <AntdButton htmlType={btnType} className={buttonClass} onClick={onClick}>
-      {icon && <span className={styles.icon}>{icon}</span>}{" "}
-      {/* Render the icon if provided */}
-      {label && <Text className="text-center">{label}</Text>}{" "}
-      {/* Center the text */}
+      {icon && <span className={styles.icon}>{icon}</span>}
+      {label && <Text className={styles.btnText}>{label}</Text>}
     </AntdButton>
   );
 };

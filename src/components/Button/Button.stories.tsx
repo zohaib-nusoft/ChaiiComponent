@@ -59,12 +59,4 @@ export const CircleIconButton: Story = {
   },
 };
 
-export const SquareIconButton: Story = {
-  args: {
-    btnClass: "iconBtnSquareGrey",
-    label: "", // No label since it's an icon button
-    btnType: "button",
-  },
-};
-
 export default meta;
