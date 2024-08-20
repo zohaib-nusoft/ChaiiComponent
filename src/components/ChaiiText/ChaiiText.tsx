@@ -7,11 +7,12 @@ interface Props {
   children?: React.ReactNode | string;
 }
 
-const ChaiiText: React.FC<Props> = ({ className, children }) => {
+const ChaiiText: React.FC<Props> = ({
+  className = styles.defaultText,
+  children,
+}) => {
   return (
-    <Typography.Text className={`${styles.defaultText} ${className}`}>
-      {children}
-    </Typography.Text>
+    <Typography.Text className={`${className}`}>{children}</Typography.Text>
   );
 };
 
