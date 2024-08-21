@@ -17,17 +17,12 @@
   padding: 0;
   margin: 0;
   position: relative;
-  flex-basis: 50%; // Ensures both columns take up 50% of the container width
-  max-width: 50%; // Prevents any over-expansion
 }
 
 .rightCol {
   background-color: $white;
-  height: 100%;
   padding: 0;
   margin: 0;
-  flex-basis: 50%; // Ensures both columns take up 50% of the container width
-  max-width: 50%; // Prevents any over-expansion
 }
 
 .formContainer {
@@ -41,24 +36,24 @@
 }
 
 .logo {
-  max-width: 200px;
-  margin-bottom: 20px;
+  max-width: 12.5rem;
+  margin-bottom: 1.25rem;
 }
 
 .slogan {
-  margin-top: 20px;
+  margin-top: 1.25rem;
   color: $white;
   font-family: Inter;
-  font-size: 30px;
+  font-size: 1.875rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 40px;
+  line-height: 2.5rem;
 }
 
 .copyright {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 0.625rem;
+  right: 0.625rem;
   font-size: 0.75rem;
   color: $white;
 }

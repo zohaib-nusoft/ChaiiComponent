@@ -47,7 +47,7 @@ const AuthScreenTemplate: React.FC<Props> = ({
               </div>
             </Col>
             <Col
-              className={`d-flex justify-content-center align-items-center ${styles.rightCol}`}
+              className={`d-flex justify-content-center align-items-center h-100 ${styles.rightCol}`}
               span={12}
             >
               <div className={styles.formContainer}>
