@@ -21,12 +21,29 @@ export const Default: Story = {
     data: [
       { name: "Company A", userName: "user1", age: "15" },
       { name: "Company B", userName: "user2", age: "20" },
+      { name: "Company A", userName: "user1", age: "15" },
+      { name: "Company B", userName: "user2", age: "20" },
+      { name: "Company A", userName: "user1", age: "15" },
+      { name: "Company B", userName: "user2", age: "20" },
+      { name: "Company A", userName: "user1", age: "15" },
+      { name: "Company B", userName: "user2", age: "20" },
+      { name: "Company A", userName: "user1", age: "15" },
+      { name: "Company B", userName: "user2", age: "20" },
+      { name: "Company A", userName: "user1", age: "15" },
+      { name: "Company B", userName: "user2", age: "20" },
+      { name: "Company A", userName: "user1", age: "15" },
+      { name: "Company B", userName: "user2", age: "20" },
+      { name: "Company A", userName: "user1", age: "15" },
+      { name: "Company B", userName: "user2", age: "20" },
     ],
     columns: [
-      { title: "name", key: "name", dataIndex: "name" },
+      { title: "Name", key: "name", dataIndex: "name" },
       { title: "User Name", key: "userName", dataIndex: "userName" },
-      { title: "age", key: "age", dataIndex: "age" },
+      { title: "Age", key: "age", dataIndex: "age" },
     ],
+    buttonLabel: "Add Resource", // Label for the button
+    buttonClass: "filledBtn", // The class for the primary button
+    onButtonClick: () => alert("Button clicked!"), // Action when the button is clicked
   },
 };
 

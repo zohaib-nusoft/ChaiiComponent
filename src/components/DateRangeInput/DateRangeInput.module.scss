@@ -1,6 +1,10 @@
 @import "../../sharedStyles.scss";
 @import "../../colours.scss";
 
+* {
+  font-family: "Inter", sans-serif;
+}
+
 .formDiv {
   height: min-content;
   width: 100%;

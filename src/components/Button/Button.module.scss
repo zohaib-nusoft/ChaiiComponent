@@ -124,11 +124,30 @@
 }
 
 .iconBtnCircle {
-  background-color: $primary;
+  width: 2.5rem; // To maintain a circular shape
+  height: 2.5rem; // To maintain a circular shape
   border-radius: 50%;
+  display: flex; // Flexbox for centering the icon
+  justify-content: center; // Center the icon horizontally
+  align-items: center; // Center the icon vertically
+  background-color: transparent; // Transparent background
+  border: none; // No border
 
   &:hover {
-    background-color: $white;
+    box-shadow: 0px 0px 5px $shadow; // Subtle shadow on hover
+
+    .icon {
+      filter: drop-shadow(
+        0px 0px 2px $shadow
+      ); // Slight shadow on the icon itself
+    }
+  }
+
+  .icon {
+    width: 1.5rem; // Icon size to fit within the button
+    height: 1.5rem; // Maintain aspect ratio
+    fill: currentColor; // Use the SVG's current color
+    transition: filter 0.3s ease; // Smooth transition for shadow on hover
   }
 }
 
@@ -138,5 +157,27 @@
 
   &:hover {
     background-color: $white;
+  }
+}
+.addRowBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px dashed $border;
+  border-radius: 0.375rem;
+  color: $primary;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $shadow;
+  }
+
+  &::before {
+    margin-right: 0.5rem;
   }
 }

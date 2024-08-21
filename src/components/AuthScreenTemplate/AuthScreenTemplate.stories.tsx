@@ -12,7 +12,8 @@ const meta: Meta<typeof AuthScreenTemplate> = {
   },
   argTypes: {
     backgroundImagePath: { control: "text" },
-    heading: { control: "text" },
+    sloganText: { control: "text" }, // New control for slogan
+    copyrightText: { control: "text" }, // Control for the optional copyright text
   },
 };
 
@@ -55,7 +56,8 @@ export const Default: Story = {
   ...Template,
   args: {
     backgroundImagePath: "/assets/images/background1.jpg",
-    heading: "Login to Your Account",
+    sloganText: "Welcome to Our Service", // Example slogan text
+    copyrightText: "© 2024 Company Name", // Optional copyright text
   },
 };
 
@@ -63,7 +65,8 @@ export const CustomRoot: Story = {
   ...Template,
   args: {
     backgroundImagePath: "/assets/images/background1.jpg",
-    heading: "Sign Up for an Account",
+    sloganText: "Join Us Today", // Example slogan text
+    copyrightText: "© 2024 Company Name", // Optional copyright text
   },
 };
 

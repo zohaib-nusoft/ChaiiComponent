@@ -43,10 +43,10 @@ export const White: Story = {
   },
 };
 
-export const Round: Story = {
+export const Row: Story = {
   args: {
-    btnClass: "roundBtn",
-    label: "Round Button",
+    btnClass: "addRowBtn",
+    label: "Row Button",
     btnType: "button",
   },
 };

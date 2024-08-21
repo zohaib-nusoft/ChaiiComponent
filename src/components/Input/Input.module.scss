@@ -1,6 +1,10 @@
 @import "../../sharedStyles.scss";
 @import "../../colours.scss";
 
+* {
+  font-family: "Inter", sans-serif;
+}
+
 .formDiv {
   height: min-content;
   width: 100%;
@@ -9,7 +13,7 @@
 }
 
 .inputLabelStyle {
-  color: $grey;
+  color: $text-color;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 400;
@@ -28,4 +32,9 @@
     border-color: $hover-border-color;
     box-shadow: 0rem 0rem 0rem 0.125rem $shadow;
   }
+}
+
+.steric {
+  color: $steric; // Add the appropriate color code here for the asterisk
+  margin-right: 0.25rem;
 }
