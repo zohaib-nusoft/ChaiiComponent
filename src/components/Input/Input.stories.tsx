@@ -18,6 +18,7 @@ export const Default: Story = {
   args: {
     name: "example",
     label: "Example Label",
+    steric: true,
     placeholder: "Enter text...",
     inputType: "normal",
     height: "middle",

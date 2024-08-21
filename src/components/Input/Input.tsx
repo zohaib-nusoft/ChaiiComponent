@@ -18,6 +18,7 @@ interface inputProps {
   style?: React.CSSProperties;
   initialValue?: string;
   minLength?: number | string;
+  steric?: boolean; // New prop for asterisk
 }
 
 const { Text } = Typography;
@@ -35,11 +36,13 @@ const ChaiInput: React.FC<inputProps> = ({
   initialValue,
   style,
   minLength,
+  steric = false, // Default value is false
 }) => {
   return (
     <Form.Item
       label={
         <span style={{ marginBottom: "-0.8rem" }}>
+          {steric && <Text className={styles.steric}>*</Text>}
           <Text className={styles.inputLabelStyle}>{label}</Text>
         </span>
       }

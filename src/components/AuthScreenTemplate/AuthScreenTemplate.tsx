@@ -5,19 +5,21 @@ import styles from "./AuthScreenTemplate.module.scss";
 import "../../sharedStyles.scss"; // Importing Bootstrap
 
 const { Content } = Layout;
-const { Title } = Typography;
 
 interface Props {
   backgroundImagePath: string;
-  heading: string;
-  buttonText: string;
-  children: React.ReactNode; // New prop to accept children
+  children: React.ReactNode;
+  logoPath?: React.ReactNode; // Updated to accept ReactNode for SVG components
+  sloganText?: string;
+  copyrightText?: string;
 }
 
 const AuthScreenTemplate: React.FC<Props> = ({
   backgroundImagePath,
-  heading,
-  children, // Destructure children prop
+  children,
+  logoPath,
+  sloganText,
+  copyrightText,
 }) => {
   const { t } = useTranslation();
 
@@ -31,25 +33,34 @@ const AuthScreenTemplate: React.FC<Props> = ({
         <Content className="d-flex h-100">
           <Row className="flex-grow-1 h-100">
             <Col
-              className={`p-0 h-100 ${styles.leftCol}`}
+              className={`p-0 h-100 d-flex align-items-center justify-content-center ${styles.leftCol}`}
               style={mainStyle}
-              xs={24}
-              md={12}
-            />
+              span={12}
+            >
+              <div className={styles.leftContent}>
+                {logoPath && <div className={styles.logo}>{logoPath}</div>}
+                {sloganText && (
+                  <Typography.Paragraph className={styles.slogan}>
+                    {sloganText}
+                  </Typography.Paragraph>
+                )}
+              </div>
+            </Col>
             <Col
               className={`d-flex justify-content-center align-items-center ${styles.rightCol}`}
-              xs={24}
-              md={12}
+              span={12}
             >
               <div className={styles.formContainer}>
-                <Title level={2} className={styles.heading}>
-                  {heading}
-                </Title>
                 {children} {/* Render the passed form or any children here */}
               </div>
             </Col>
           </Row>
         </Content>
+        {copyrightText && (
+          <Typography.Paragraph className={styles.copyright}>
+            {copyrightText}
+          </Typography.Paragraph>
+        )}
       </Layout>
     </div>
   );

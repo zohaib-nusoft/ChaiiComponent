@@ -10,6 +10,7 @@ import Input from "./components/Input/Input";
 import InputFieldHeader from "./components/InputFieldHeader/InputFieldHeader";
 import PageHeader from "./components/PageHeader/PageHeader";
 import SplashScreenTemplate from "./components/SplashScreenTemplate/SplashScreenTemplate";
+import SimpleTable from "./components/Table/Table";
 
 export {
   AppHeader,
@@ -24,4 +25,5 @@ export {
   InputFieldHeader,
   PageHeader,
   SplashScreenTemplate,
+  SimpleTable,
 };

@@ -9,7 +9,8 @@ interface ButtonProps {
     | "filledBtn"
     | "whiteBtn"
     | "roundBtn"
-    | "iconBtnCircle";
+    | "iconBtnCircle"
+    | "addRowBtn";
   label?: string;
   btnType?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent) => void;
