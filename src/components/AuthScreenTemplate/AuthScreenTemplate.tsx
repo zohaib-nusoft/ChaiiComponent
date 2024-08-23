@@ -28,41 +28,39 @@ const AuthScreenTemplate: React.FC<Props> = ({
     : {};
 
   return (
-    <div className={`d-flex flex-column ${styles.container}`}>
-      <Layout className="h-100">
-        <Content className="d-flex h-100">
-          <Row className="flex-grow-1 h-100">
-            <Col
-              className={`p-0 h-100 d-flex align-items-center justify-content-center ${styles.leftCol}`}
-              style={mainStyle}
-              span={12}
-            >
-              <div className={styles.leftContent}>
-                {logoPath && <div className={styles.logo}>{logoPath}</div>}
-                {sloganText && (
-                  <Typography.Paragraph className={styles.slogan}>
-                    {sloganText}
-                  </Typography.Paragraph>
-                )}
-              </div>
-            </Col>
-            <Col
-              className={`d-flex justify-content-center align-items-center h-100 ${styles.rightCol}`}
-              span={12}
-            >
-              <div className={styles.formContainer}>
-                {children} {/* Render the passed form or any children here */}
-              </div>
-            </Col>
-          </Row>
-        </Content>
-        {copyrightText && (
-          <Typography.Paragraph className={styles.copyright}>
-            {copyrightText}
-          </Typography.Paragraph>
-        )}
-      </Layout>
-    </div>
+    <Layout className="h-100 w-100">
+      <Content className="d-flex h-100 w-100">
+        <Row className="h-100 w-100">
+          <Col
+            className={`p-0 h-100 d-flex align-items-center justify-content-center ${styles.leftCol}`}
+            style={mainStyle}
+            span={12}
+          >
+            <div className={styles.leftContent}>
+              {logoPath && <div className={styles.logo}>{logoPath}</div>}
+              {sloganText && (
+                <Typography.Paragraph className={styles.slogan}>
+                  {sloganText}
+                </Typography.Paragraph>
+              )}
+            </div>
+          </Col>
+          <Col
+            className={`d-flex justify-content-center align-items-center h-100 ${styles.rightCol}`}
+            span={12}
+          >
+            <div className={styles.formContainer}>
+              {children} {/* Render the passed form or any children here */}
+            </div>
+          </Col>
+        </Row>
+      </Content>
+      {copyrightText && (
+        <Typography.Paragraph className={styles.copyright}>
+          {copyrightText}
+        </Typography.Paragraph>
+      )}
+    </Layout>
   );
 };
 

@@ -1,18 +1,41 @@
-import { Table, Typography, Input, Select, Row, Col } from "antd";
-import { Content } from "antd/es/layout/layout";
 import React, { useState } from "react";
+import {
+  Table,
+  Typography,
+  Input,
+  Select,
+  Row,
+  Col,
+  Checkbox,
+  Space,
+  Badge,
+} from "antd";
+import { Content } from "antd/es/layout/layout";
 import styles from "./Table.module.scss";
-import ChaiiButton from "../Button/Button"; // Adjust the import path as necessary
+import ChaiiButton from "../Button/Button"; // Import the ChaiiButton component
+
+interface DataType {
+  key: string;
+  name: string;
+  userName: string;
+  age: string;
+  status: string;
+}
 
 interface inputProps {
-  columns: { title: string; dataIndex: string; key: string }[];
-  data: {}[];
+  columns: {
+    title: string;
+    dataIndex?: string;
+    key: string;
+    render?: (text: any, record: DataType) => React.ReactNode;
+  }[];
+  data: DataType[];
   title: string;
   sortByOptions: string[];
   buttonLabel?: string;
   buttonClass?:
-    | "filledBtnLarge"
     | "filledBtn"
+    | "filledBtnLarge"
     | "whiteBtn"
     | "roundBtn"
     | "iconBtnCircle"
@@ -33,10 +56,10 @@ const SimpleTable: React.FC<inputProps> = ({
   buttonClass,
   onButtonClick,
 }) => {
-  const [filteredData, setFilteredData] = useState(data);
+  const [filteredData, setFilteredData] = useState<DataType[]>(data);
 
   const handleSearch = (value: string) => {
-    const searchData = data.filter((item: any) =>
+    const searchData = data.filter((item) =>
       item.name.toLowerCase().includes(value.toLowerCase())
     );
     setFilteredData(searchData);
@@ -45,6 +68,55 @@ const SimpleTable: React.FC<inputProps> = ({
   const handleSort = (value: string) => {
     // Implement sorting logic here
   };
+
+  // Here we create the columns array dynamically and ensure there is no duplication
+  const tableColumns = [
+    {
+      title: "",
+      key: "checkbox",
+      render: () => <Checkbox />,
+    },
+    ...columns,
+    {
+      title: "Status",
+      key: "status",
+      dataIndex: "status",
+      render: (status: string) => {
+        let color = "green";
+        if (status === "Busy") color = "red";
+        else if (status === "Vacation") color = "gray";
+        else if (status === "Completed") color = "green";
+        else if (status === "Available") color = "blue";
+
+        return (
+          <Space size="small">
+            <Badge color={color} />
+            <Text>{status}</Text>
+          </Space>
+        );
+      },
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: (_: any, record: DataType) => (
+        <Space size="middle">
+          <a
+            className={styles["table-action-buttons"]}
+            onClick={() => alert(`Edit ${record.name}`)}
+          >
+            Edit
+          </a>
+          <a
+            className={styles["table-action-buttons"]}
+            onClick={() => alert(`View ${record.name}`)}
+          >
+            View
+          </a>
+        </Space>
+      ),
+    },
+  ];
 
   return (
     <Content className={`${styles.tableContainer} p-2`}>
@@ -84,9 +156,9 @@ const SimpleTable: React.FC<inputProps> = ({
       </Row>
       <Table
         dataSource={filteredData ?? []}
-        columns={columns}
-        pagination={{ pageSize: 10 }} // Disable pagination for consistent height
-        className={styles.customTable}
+        columns={tableColumns}
+        pagination={{ pageSize: 10 }}
+        className={` d-flex ${styles.customTable}`}
       />
     </Content>
   );

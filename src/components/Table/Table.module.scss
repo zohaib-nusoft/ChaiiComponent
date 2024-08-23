@@ -2,7 +2,7 @@
 @import "../../colours.scss";
 
 .tableContainer {
-  background-color: white;
+  background-color: $white;
   padding: 1rem;
   border-radius: 0.5rem;
 }
@@ -12,13 +12,12 @@
 }
 
 .customTable {
-  display: flex;
   flex-direction: column;
 }
 
 .customTable .ant-table-body {
   flex: 1;
-  min-height: 400px; // Ensure this matches the height for 10 rows
+  min-height: 25rem; // Ensure this matches the height for 10 rows
   display: block;
 }
 
@@ -27,11 +26,11 @@
 }
 
 .customTable .ant-table-row {
-  min-height: 40px; // Adjust this to match the height of a single row
+  min-height: 2.5rem; // Adjust this to match the height of a single row
 }
 
 .customTable .ant-table-tbody > tr {
-  height: 40px; // Ensure each row has a fixed height
+  height: 2.5rem; // Ensure each row has a fixed height
 }
 
 .customTable .ant-table-tbody > tr:last-child td {
@@ -41,4 +40,13 @@
 .customTable .ant-pagination {
   margin-top: 1rem; // Add some space above the pagination control
   align-self: flex-end; // Ensure pagination is at the bottom of the table
+}
+
+.table-action-buttons {
+  color: $primary;
+  cursor: pointer;
+  text-decoration: underline; // Optional for making links look like buttons
+  &:hover {
+    text-decoration: none; // Remove underline on hover, if desired
+  }
 }

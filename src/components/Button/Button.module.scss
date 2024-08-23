@@ -127,27 +127,19 @@
   width: 2.5rem; // To maintain a circular shape
   height: 2.5rem; // To maintain a circular shape
   border-radius: 50%;
-  display: flex; // Flexbox for centering the icon
-  justify-content: center; // Center the icon horizontally
-  align-items: center; // Center the icon vertically
-  background-color: transparent; // Transparent background
-  border: none; // No border
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
 
   &:hover {
-    box-shadow: 0px 0px 5px $shadow; // Subtle shadow on hover
+    box-shadow: none;
 
     .icon {
-      filter: drop-shadow(
-        0px 0px 2px $shadow
-      ); // Slight shadow on the icon itself
+      filter: none;
     }
-  }
-
-  .icon {
-    width: 1.5rem; // Icon size to fit within the button
-    height: 1.5rem; // Maintain aspect ratio
-    fill: currentColor; // Use the SVG's current color
-    transition: filter 0.3s ease; // Smooth transition for shadow on hover
   }
 }
 
