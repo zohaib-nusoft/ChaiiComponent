@@ -1,14 +1,6 @@
 @import "../../sharedStyles.scss";
 @import "../../colours.scss";
 
-.container {
-  position: relative;
-  height: 100%; // Full viewport height
-  width: 100%;
-  padding: 0;
-  margin: 0;
-}
-
 .leftCol {
   background-size: cover;
   background-position: center;
@@ -48,6 +40,9 @@
   font-style: normal;
   font-weight: 500;
   line-height: 2.5rem;
+  text-align: left;
+  margin-right: 4rem;
+  margin-left: 1.25rem;
 }
 
 .copyright {
@@ -55,7 +50,7 @@
   bottom: 0.625rem;
   right: 0.625rem;
   font-size: 0.75rem;
-  color: $white;
+  color: $text-color;
 }
 
 .submitButton {

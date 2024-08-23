@@ -2,7 +2,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900");
 
+html,
+body,
+.ant-typography,
 * {
-  font-family: "Inter";
-  margin: 0;
+  font-family: "Inter" !important;
 }
