@@ -11,6 +11,7 @@ import InputFieldHeader from "./components/InputFieldHeader/InputFieldHeader";
 import PageHeader from "./components/PageHeader/PageHeader";
 import SplashScreenTemplate from "./components/SplashScreenTemplate/SplashScreenTemplate";
 import SimpleTable from "./components/Table/Table";
+import ChaiiMultiSelect from "./components/ChaiiMultiSelect/ChaiiMultiSelect";
 
 export {
   AppHeader,
@@ -26,4 +27,5 @@ export {
   PageHeader,
   SplashScreenTemplate,
   SimpleTable,
+  ChaiiMultiSelect,
 };

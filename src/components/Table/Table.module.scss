@@ -50,3 +50,10 @@
     text-decoration: none; // Remove underline on hover, if desired
   }
 }
+.custom {
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  color: $text-color !important;
+  font-style: normal;
+  line-height: 1.5rem;
+}
