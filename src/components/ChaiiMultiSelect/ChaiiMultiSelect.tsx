@@ -8,7 +8,7 @@ interface ChaiiMultiSelectProps {
   defaultValue?: string[];
   name: string;
   label?: string;
-  options: SelectProps["options"];
+  options?: SelectProps["options"]; // Made optional
   placeholder?: string;
 }
 
@@ -17,7 +17,7 @@ const ChaiiMultiSelect: React.FC<ChaiiMultiSelectProps> = ({
   defaultValue,
   name,
   label,
-  options,
+  options = [], // Provide an empty array as a default value
   placeholder,
 }) => {
   return (
@@ -32,7 +32,7 @@ const ChaiiMultiSelect: React.FC<ChaiiMultiSelectProps> = ({
       name={name}
     >
       <Select
-        mode="multiple"
+        mode="tags"
         size={size}
         placeholder={placeholder}
         defaultValue={defaultValue}

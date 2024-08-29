@@ -156,9 +156,10 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  box-shadow: 0px 2px 0px 0px $shadow;
   padding: 0.75rem;
-  border: 2px dashed $border;
-  border-radius: 0.375rem;
+  border: 1px dashed $border;
+  border-radius: 0.125rem;
   color: $primary;
   background-color: transparent;
   cursor: pointer;

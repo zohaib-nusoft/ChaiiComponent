@@ -13,9 +13,8 @@ interface Props {
     | "filledBtn"
     | "whiteBtn"
     | "roundBtn"
-    | "iconBtnCircle"
-    | "iconBtnSquareBlue"
-    | "iconBtnSquareGrey";
+    | "iconBtnCircle";
+  btnType?: "button" | "submit" | "reset"; // Add the btnType prop
 }
 
 const InputFieldHeader: React.FC<Props> = ({
@@ -23,6 +22,7 @@ const InputFieldHeader: React.FC<Props> = ({
   buttonText,
   onButtonClick,
   buttonClass = "filledBtn", // Default to "filledBtn" if no class is provided
+  btnType = "button", // Default value
 }) => {
   return (
     <div className="d-flex justify-content-between align-items-center p-3">
@@ -33,6 +33,7 @@ const InputFieldHeader: React.FC<Props> = ({
         <ChaiiButton
           btnClass={buttonClass}
           label={buttonText}
+          btnType={btnType} // Pass btnType to ChaiiButton
           onClick={onButtonClick}
         />
       )}

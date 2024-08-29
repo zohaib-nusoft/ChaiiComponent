@@ -1,18 +1,8 @@
 import React, { useState } from "react";
-import {
-  Table,
-  Typography,
-  Input,
-  Select,
-  Row,
-  Col,
-  Checkbox,
-  Space,
-  Badge,
-} from "antd";
+import { Table, Typography, Input, Select, Row, Col } from "antd";
 import { Content } from "antd/es/layout/layout";
 import styles from "./Table.module.scss";
-import ChaiiButton from "../Button/Button"; // Import the ChaiiButton component
+import ChaiiButton from "../Button/Button";
 
 interface DataType {
   key: string;
@@ -69,62 +59,13 @@ const SimpleTable: React.FC<inputProps> = ({
     // Implement sorting logic here
   };
 
-  // Here we create the columns array dynamically and ensure there is no duplication
-  const tableColumns = [
-    {
-      title: "",
-      key: "checkbox",
-      render: () => <Checkbox />,
-    },
-    ...columns,
-    {
-      title: "Status",
-      key: "status",
-      dataIndex: "status",
-      render: (status: string) => {
-        let color = "green";
-        if (status === "Busy") color = "red";
-        else if (status === "Vacation") color = "gray";
-        else if (status === "Completed") color = "green";
-        else if (status === "Available") color = "blue";
-
-        return (
-          <Space size="small">
-            <Badge color={color} />
-            <Text>{status}</Text>
-          </Space>
-        );
-      },
-    },
-    {
-      title: "Action",
-      key: "action",
-      render: (_: any, record: DataType) => (
-        <Space size="middle">
-          <a
-            className={styles["table-action-buttons"]}
-            onClick={() => alert(`Edit ${record.name}`)}
-          >
-            Edit
-          </a>
-          <a
-            className={styles["table-action-buttons"]}
-            onClick={() => alert(`View ${record.name}`)}
-          >
-            View
-          </a>
-        </Space>
-      ),
-    },
-  ];
-
   return (
     <Content className={`${styles.tableContainer} p-2`}>
       <Row
         className={`d-flex align-items-center justify-content-between ${styles.tableHeader}`}
       >
-        <Col className={styles.title}>
-          <Text>{title}</Text>
+        <Col>
+          <Text className={styles.custom}>{title}</Text>
         </Col>
         <Col
           className={`d-flex align-items-center justify-content-end gap-2 ${styles.controls}`}
@@ -156,7 +97,7 @@ const SimpleTable: React.FC<inputProps> = ({
       </Row>
       <Table
         dataSource={filteredData ?? []}
-        columns={tableColumns}
+        columns={columns}
         pagination={{ pageSize: 10 }}
         className={` d-flex ${styles.customTable}`}
       />
