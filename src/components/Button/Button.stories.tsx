@@ -7,7 +7,15 @@ const meta: Meta<typeof ChaiiButton> = {
   argTypes: {
     btnClass: {
       control: { type: "select" },
-      options: ["filledBtnLarge", "filledBtn", "whiteBtn", "roundBtn"],
+      options: [
+        "filledBtnLarge",
+        "filledBtn",
+        "whiteBtn",
+        "roundBtn",
+        "iconBtnCircle",
+        "addRowBtn",
+        "actionBtn",
+      ],
     },
     label: { control: "text" },
     btnType: {
@@ -55,6 +63,23 @@ export const CircleIconButton: Story = {
   args: {
     btnClass: "iconBtnCircle",
     label: "", // No label since it's an icon button
+    btnType: "button",
+  },
+};
+
+// New story for the action button
+export const ActionEditButton: Story = {
+  args: {
+    btnClass: "actionBtn",
+    label: "Edit",
+    btnType: "button",
+  },
+};
+
+export const ActionViewButton: Story = {
+  args: {
+    btnClass: "actionBtn",
+    label: "View",
     btnType: "button",
   },
 };
