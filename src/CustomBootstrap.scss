@@ -2,7 +2,7 @@
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
-@import "../src/colours.scss";
+@import "../src/colors.scss";
 
 // Add the custom white color to the Bootstrap color map
 $theme-colors: map-merge(("white": $white,

@@ -1,16 +1,14 @@
-import React from "react";
-import { Form, Input as AntInput, InputNumber, Typography } from "antd";
-import classNames from "classnames";
+import { Input as AntInput, InputNumber, Typography } from "antd";
 import TextArea from "antd/es/input/TextArea";
-import styles from "./Input.module.scss";
+import classNames from "classnames";
+import React from "react";
 import "../../sharedStyles.scss"; // Importing Bootstrap
+import styles from "./Input.module.scss";
 
 interface inputProps {
   suffix?: React.ReactNode;
-  name: string;
   placeholder?: string;
   type?: "password" | "input";
-  label?: string;
   disable?: boolean;
   inputType?: "normal" | "textArea" | "number" | "password";
   maxLength?: number;
@@ -25,10 +23,8 @@ const { Text } = Typography;
 
 const ChaiInput: React.FC<inputProps> = ({
   suffix,
-  name = "test",
   placeholder,
   type,
-  label,
   disable,
   inputType = "normal",
   maxLength = 500,
@@ -36,21 +32,9 @@ const ChaiInput: React.FC<inputProps> = ({
   initialValue,
   style,
   minLength,
-  steric = false, // Default value is false
 }) => {
   return (
-    <Form.Item
-      label={
-        <span style={{ marginBottom: "-0.8rem" }}>
-          {steric && <Text className={styles.steric}>*</Text>}
-          <Text className={styles.inputLabelStyle}>{label}</Text>
-        </span>
-      }
-      labelCol={{ span: label ? 24 : 0 }}
-      initialValue={initialValue}
-      className={styles.formDiv}
-      name={name}
-    >
+    <>
       {inputType === "textArea" ? (
         <TextArea
           showCount={height !== "small"}
@@ -89,7 +73,7 @@ const ChaiInput: React.FC<inputProps> = ({
           )}
         />
       )}
-    </Form.Item>
+    </>
   );
 };
 

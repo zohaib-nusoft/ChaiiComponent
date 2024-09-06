@@ -1,10 +1,12 @@
 @import "../../sharedStyles.scss";
-@import "../../colours.scss";
+@import "../../colors.scss";
 
 .containerLink {
   background-size: cover;
   background-position: center;
   background-blend-mode: overlay;
+  background-color: $background-overlay;
+  object-fit: contain;
   height: 100%; // Ensure it takes full viewport height
 }
 

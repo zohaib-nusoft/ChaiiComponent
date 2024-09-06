@@ -1,8 +1,8 @@
-import React from "react";
 import { Typography } from "antd";
+import React from "react";
 import ChaiiButton from "../../components/Button/Button";
-import styles from "./InputFieldHeader.module.scss";
 import "../../sharedStyles.scss";
+import styles from "./InputFieldHeader.module.scss";
 
 interface Props {
   heading: string;
@@ -26,10 +26,8 @@ const InputFieldHeader: React.FC<Props> = ({
 }) => {
   return (
     <div className="d-flex justify-content-between align-items-center p-3">
-      <Typography.Title level={4} className={styles.heading}>
-        {heading}
-      </Typography.Title>
-      {buttonText && onButtonClick && (
+      <Typography.Text className={styles.heading}>{heading}</Typography.Text>
+      {buttonText && (
         <ChaiiButton
           btnClass={buttonClass}
           label={buttonText}

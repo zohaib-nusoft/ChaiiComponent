@@ -1,8 +1,9 @@
 @import "../../sharedStyles.scss";
-@import "../../colours.scss";
+@import "../../colors.scss";
+@import url('https://fonts.googleapis.com/css?family=Inter');
 
 * {
-  font-family: "Inter", sans-serif;
+  font-family: Inter;
 }
 
 .header_app {
