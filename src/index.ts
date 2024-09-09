@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import AppHeader from "./components/AppHeader/AppHeader";
 import AuthScreenTemplate from "./components/AuthScreenTemplate/AuthScreenTemplate";
 import Breadcrumb from "./components/Breadcrumb/Breadcrumb";
