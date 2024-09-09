@@ -6,12 +6,10 @@ import ChaiiFlatlistCards from "./components/ChaiiFlatlistCards/ChaiiFlatlistCar
 import ChaiiText from "./components/ChaiiText/ChaiiText";
 import DateRangeInput from "./components/DateRangeInput/DateRangeInput";
 import Divider from "./components/Divider/Divider";
-import Input from "./components/Input/Input";
 import InputFieldHeader from "./components/InputFieldHeader/InputFieldHeader";
 import PageHeader from "./components/PageHeader/PageHeader";
 import SplashScreenTemplate from "./components/SplashScreenTemplate/SplashScreenTemplate";
 import SimpleTable from "./components/Table/Table";
-import ChaiiMultiSelect from "./components/ChaiiMultiSelect/ChaiiMultiSelect";
 
 export {
   AppHeader,
@@ -22,10 +20,8 @@ export {
   ChaiiText,
   DateRangeInput,
   Divider,
-  Input,
   InputFieldHeader,
   PageHeader,
-  SplashScreenTemplate,
   SimpleTable,
-  ChaiiMultiSelect,
+  SplashScreenTemplate,
 };

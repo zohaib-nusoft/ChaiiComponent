@@ -1,10 +1,14 @@
 @import "../../sharedStyles.scss";
-@import "../../colours.scss";
+@import "../../colors.scss";
 
 .leftCol {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: $background-overlay;
+  object-fit: contain;
+  padding-left: 2.5rem !important;
   height: 100%;
   padding: 0;
   margin: 0;
@@ -39,6 +43,7 @@
   font-size: 1.875rem;
   font-style: normal;
   font-weight: 500;
+  width: 23.063rem;
   line-height: 2.5rem;
   text-align: left;
   margin-right: 4rem;

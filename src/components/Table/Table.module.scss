@@ -1,5 +1,5 @@
 @import "../../sharedStyles.scss";
-@import "../../colours.scss";
+@import "../../colors.scss";
 
 .tableContainer {
   background-color: $white;
@@ -29,11 +29,11 @@
   min-height: 2.5rem; // Adjust this to match the height of a single row
 }
 
-.customTable .ant-table-tbody > tr {
+.customTable .ant-table-tbody>tr {
   height: 2.5rem; // Ensure each row has a fixed height
 }
 
-.customTable .ant-table-tbody > tr:last-child td {
+.customTable .ant-table-tbody>tr:last-child td {
   border-bottom: 0; // Remove border for the last row to make it look clean
 }
 
@@ -46,10 +46,12 @@
   color: $primary;
   cursor: pointer;
   text-decoration: underline; // Optional for making links look like buttons
+
   &:hover {
     text-decoration: none; // Remove underline on hover, if desired
   }
 }
+
 .custom {
   font-size: 1rem !important;
   font-weight: 500 !important;
