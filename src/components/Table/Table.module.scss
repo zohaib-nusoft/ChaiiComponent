@@ -52,10 +52,11 @@
   }
 }
 
-.custom {
-  font-size: 1rem !important;
-  font-weight: 500 !important;
-  color: $text-color !important;
+.text_styles {
+  color: $black;
+  font-family: Inter;
+  font-size: 1rem;
   font-style: normal;
+  font-weight: 500;
   line-height: 1.5rem;
 }

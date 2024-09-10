@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Table, Typography, Input, Select, Row, Col } from "antd";
+import { Col, Input, Pagination, Row, Select, Table, Typography } from "antd";
 import { Content } from "antd/es/layout/layout";
-import styles from "./Table.module.scss";
+import React, { useState } from "react";
 import ChaiiButton from "../Button/Button";
+import styles from "./Table.module.scss";
 
 interface DataType {
   key: string;
@@ -20,8 +20,7 @@ interface inputProps {
     render?: (text: any, record: DataType) => React.ReactNode;
   }[];
   data: DataType[];
-  title: string;
-  sortByOptions: string[];
+  title?: string;
   buttonLabel?: string;
   buttonClass?:
     | "filledBtn"
@@ -30,6 +29,8 @@ interface inputProps {
     | "roundBtn"
     | "iconBtnCircle"
     | "addRowBtn";
+  searchBar?: boolean;
+  pagination?: any;
   onButtonClick?: (e: React.MouseEvent) => void;
 }
 
@@ -41,10 +42,11 @@ const SimpleTable: React.FC<inputProps> = ({
   columns,
   data,
   title,
-  sortByOptions,
   buttonLabel,
   buttonClass,
   onButtonClick,
+  searchBar,
+  pagination,
 }) => {
   const [filteredData, setFilteredData] = useState<DataType[]>(data);
 
@@ -60,46 +62,49 @@ const SimpleTable: React.FC<inputProps> = ({
   };
 
   return (
-    <Content className={`${styles.tableContainer} p-2`}>
+    <Content className={`${styles.tableContainer} p-4`}>
       <Row
         className={`d-flex align-items-center justify-content-between ${styles.tableHeader}`}
       >
-        <Col>
-          <Text className={styles.custom}>{title}</Text>
-        </Col>
+        {title && (
+          <Col span={10}>
+            <Text className={styles.text_styles}>{title}</Text>
+          </Col>
+        )}
         <Col
+          span={14}
           className={`d-flex align-items-center justify-content-end gap-2 ${styles.controls}`}
         >
-          <Select
-            defaultValue={sortByOptions[0]}
-            onChange={handleSort}
-            className={styles.sortBy}
-          >
-            {sortByOptions.map((option) => (
-              <Option key={option} value={option}>
-                {option}
-              </Option>
-            ))}
-          </Select>
-          <Search
-            placeholder="Search Companies"
-            onSearch={handleSearch}
-            className={styles.searchBar}
-          />
-          {buttonLabel && buttonClass && (
-            <ChaiiButton
-              label={buttonLabel}
-              btnClass={buttonClass}
-              onClick={onButtonClick}
-            />
-          )}
+          <Row gutter={20}>
+            {searchBar && (
+              <>
+                <Col>
+                  <Search
+                    placeholder="Search Companies"
+                    onSearch={handleSearch}
+                    className={styles.searchBar}
+                  />
+                </Col>
+              </>
+            )}
+            <Col>
+              {buttonLabel && buttonClass && (
+                <ChaiiButton
+                  label={buttonLabel}
+                  btnClass={buttonClass}
+                  onClick={onButtonClick}
+                />
+              )}
+            </Col>
+          </Row>
         </Col>
       </Row>
       <Table
         dataSource={filteredData ?? []}
         columns={columns}
-        pagination={{ pageSize: 10 }}
-        className={` d-flex ${styles.customTable}`}
+        size="middle"
+        pagination={pagination}
+        className={`d-flex ${styles.customTable} mt-4`}
       />
     </Content>
   );
