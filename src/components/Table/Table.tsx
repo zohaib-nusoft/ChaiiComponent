@@ -4,22 +4,14 @@ import React, { useState } from "react";
 import ChaiiButton from "../Button/Button";
 import styles from "./Table.module.scss";
 
-interface DataType {
-  key: string;
-  name: string;
-  userName: string;
-  age: string;
-  status: string;
-}
-
 interface inputProps {
   columns: {
     title: string;
     dataIndex?: string;
     key: string;
-    render?: (text: any, record: DataType) => React.ReactNode;
+    render?: (text: any, record: any) => React.ReactNode;
   }[];
-  data: DataType[];
+  data: any[];
   title?: string;
   buttonLabel?: string;
   buttonClass?:
@@ -48,7 +40,7 @@ const SimpleTable: React.FC<inputProps> = ({
   searchBar,
   pagination,
 }) => {
-  const [filteredData, setFilteredData] = useState<DataType[]>(data);
+  const [filteredData, setFilteredData] = useState<any[]>(data);
 
   const handleSearch = (value: string) => {
     const searchData = data.filter((item) =>
