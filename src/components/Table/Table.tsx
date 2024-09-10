@@ -1,4 +1,4 @@
-import { Col, Input, Row, Select, Table, Typography } from "antd";
+import { Col, Input, Pagination, Row, Select, Table, Typography } from "antd";
 import { Content } from "antd/es/layout/layout";
 import React, { useState } from "react";
 import ChaiiButton from "../Button/Button";
@@ -20,16 +20,17 @@ interface inputProps {
     render?: (text: any, record: DataType) => React.ReactNode;
   }[];
   data: DataType[];
-  title: string;
-  sortByOptions: string[];
+  title?: string;
   buttonLabel?: string;
   buttonClass?:
-    | "filledBtn"
-    | "filledBtnLarge"
-    | "whiteBtn"
-    | "roundBtn"
-    | "iconBtnCircle"
-    | "addRowBtn";
+  | "filledBtn"
+  | "filledBtnLarge"
+  | "whiteBtn"
+  | "roundBtn"
+  | "iconBtnCircle"
+  | "addRowBtn";
+  searchBar?: boolean;
+  pagination?: any;
   onButtonClick?: (e: React.MouseEvent) => void;
 }
 
@@ -41,10 +42,11 @@ const SimpleTable: React.FC<inputProps> = ({
   columns,
   data,
   title,
-  sortByOptions,
   buttonLabel,
   buttonClass,
   onButtonClick,
+  searchBar,
+  pagination
 }) => {
   const [filteredData, setFilteredData] = useState<DataType[]>(data);
 
@@ -64,43 +66,35 @@ const SimpleTable: React.FC<inputProps> = ({
       <Row
         className={`d-flex align-items-center justify-content-between ${styles.tableHeader}`}
       >
-        <Col span={10}>
-          <Text className={styles.text_styles}>{title}</Text>
-        </Col>
+        {title &&
+          <Col span={10}>
+            <Text className={styles.text_styles}>{title}</Text>
+          </Col>
+        }
         <Col
           span={14}
           className={`d-flex align-items-center justify-content-end gap-2 ${styles.controls}`}
         >
           <Row gutter={20}>
-            <Col>
-              <Select
-                defaultValue={sortByOptions[0]}
-                onChange={handleSort}
-                className={styles.sortBy}
-              >
-                {sortByOptions.map((option) => (
-                  <Option key={option} value={option}>
-                    {option}
-                  </Option>
-                ))}
-              </Select>
-            </Col>
-            <Col>
-              <Search
-                placeholder="Search Companies"
-                onSearch={handleSearch}
-                className={styles.searchBar}
-              />
-            </Col>
-            <Col>
-              {buttonLabel && buttonClass && (
-                <ChaiiButton
-                  label={buttonLabel}
-                  btnClass={buttonClass}
-                  onClick={onButtonClick}
-                />
-              )}
-            </Col>
+            {searchBar &&
+              <>
+                <Col>
+                  <Search
+                    placeholder="Search Companies"
+                    onSearch={handleSearch}
+                    className={styles.searchBar}
+                  />
+                </Col>
+                <Col>
+                  {buttonLabel && buttonClass && (
+                    <ChaiiButton
+                      label={buttonLabel}
+                      btnClass={buttonClass}
+                      onClick={onButtonClick}
+                    />
+                  )}
+                </Col>
+              </>}
           </Row>
         </Col>
       </Row>
@@ -108,8 +102,8 @@ const SimpleTable: React.FC<inputProps> = ({
         dataSource={filteredData ?? []}
         columns={columns}
         size="middle"
-        pagination={{ pageSize: 10 }}
-        className={` d-flex ${styles.customTable} mt-4`}
+        pagination={pagination}
+        className={`d-flex ${styles.customTable} mt-4`}
       />
     </Content>
   );

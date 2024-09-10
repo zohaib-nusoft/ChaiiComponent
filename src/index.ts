@@ -11,6 +11,8 @@ import InputFieldHeader from "./components/InputFieldHeader/InputFieldHeader";
 import PageHeader from "./components/PageHeader/PageHeader";
 import SplashScreenTemplate from "./components/SplashScreenTemplate/SplashScreenTemplate";
 import SimpleTable from "./components/Table/Table";
+import ChaiiDatePicker from "./components/DatePickerInput/DataPickerInput";
+import ChaiiToggle from "./components/Toggle/Toggle";
 
 export {
   AppHeader,
@@ -25,4 +27,6 @@ export {
   PageHeader,
   SimpleTable,
   SplashScreenTemplate,
+  ChaiiDatePicker,
+  ChaiiToggle
 };
