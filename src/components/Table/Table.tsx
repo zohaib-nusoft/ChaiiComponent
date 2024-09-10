@@ -23,12 +23,12 @@ interface inputProps {
   title?: string;
   buttonLabel?: string;
   buttonClass?:
-  | "filledBtn"
-  | "filledBtnLarge"
-  | "whiteBtn"
-  | "roundBtn"
-  | "iconBtnCircle"
-  | "addRowBtn";
+    | "filledBtn"
+    | "filledBtnLarge"
+    | "whiteBtn"
+    | "roundBtn"
+    | "iconBtnCircle"
+    | "addRowBtn";
   searchBar?: boolean;
   pagination?: any;
   onButtonClick?: (e: React.MouseEvent) => void;
@@ -46,7 +46,7 @@ const SimpleTable: React.FC<inputProps> = ({
   buttonClass,
   onButtonClick,
   searchBar,
-  pagination
+  pagination,
 }) => {
   const [filteredData, setFilteredData] = useState<DataType[]>(data);
 
@@ -66,17 +66,17 @@ const SimpleTable: React.FC<inputProps> = ({
       <Row
         className={`d-flex align-items-center justify-content-between ${styles.tableHeader}`}
       >
-        {title &&
+        {title && (
           <Col span={10}>
             <Text className={styles.text_styles}>{title}</Text>
           </Col>
-        }
+        )}
         <Col
           span={14}
           className={`d-flex align-items-center justify-content-end gap-2 ${styles.controls}`}
         >
           <Row gutter={20}>
-            {searchBar &&
+            {searchBar && (
               <>
                 <Col>
                   <Search
@@ -85,16 +85,17 @@ const SimpleTable: React.FC<inputProps> = ({
                     className={styles.searchBar}
                   />
                 </Col>
-                <Col>
-                  {buttonLabel && buttonClass && (
-                    <ChaiiButton
-                      label={buttonLabel}
-                      btnClass={buttonClass}
-                      onClick={onButtonClick}
-                    />
-                  )}
-                </Col>
-              </>}
+              </>
+            )}
+            <Col>
+              {buttonLabel && buttonClass && (
+                <ChaiiButton
+                  label={buttonLabel}
+                  btnClass={buttonClass}
+                  onClick={onButtonClick}
+                />
+              )}
+            </Col>
           </Row>
         </Col>
       </Row>

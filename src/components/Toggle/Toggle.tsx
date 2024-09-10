@@ -5,7 +5,7 @@ import classNames from "classnames";
 
 interface ToggleProps {
   checked?: boolean;
-  onChange?: (i: boolean) => void;
+  onChange: (i: boolean) => void;
   label?: string;
 }
 
@@ -26,7 +26,11 @@ const ChaiiToggle: React.FC<ToggleProps> = ({
       <Col>
         <Switch className={toggleClass} checked={checked} onChange={onChange} />
       </Col>
-      <Col>{label && <Text className={toggleLabel}>{label}</Text>}</Col>
+      {label && (
+        <Col>
+          <Text className={toggleLabel}>{label}</Text>
+        </Col>
+      )}
     </Row>
   );
 };
