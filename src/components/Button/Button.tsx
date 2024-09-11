@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./Button.module.scss";
 import { Button as AntdButton, Typography } from "antd";
 import classNames from "classnames";
+import React from "react";
+import styles from "./Button.module.scss";
 
 interface ButtonProps {
   btnClass?:
@@ -11,7 +11,8 @@ interface ButtonProps {
     | "roundBtn"
     | "iconBtnCircle"
     | "addRowBtn"
-    | "actionBtn";
+    | "actionBtn"
+    | "filledBtnWide";
   label?: string;
   btnType?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent) => void;

@@ -1,4 +1,4 @@
-import { Col, Input, Pagination, Row, Select, Table, Typography } from "antd";
+import { Col, Input, Row, Select, Table, Typography } from "antd";
 import { Content } from "antd/es/layout/layout";
 import React, { useState } from "react";
 import ChaiiButton from "../Button/Button";
@@ -17,9 +17,9 @@ interface inputProps {
     title: string;
     dataIndex?: string;
     key: string;
-    render?: (text: any, record: DataType) => React.ReactNode;
+    render?: (text: any, record: any) => React.ReactNode;
   }[];
-  data: DataType[];
+  data: any[];
   title?: string;
   buttonLabel?: string;
   buttonClass?:
@@ -48,7 +48,7 @@ const SimpleTable: React.FC<inputProps> = ({
   searchBar,
   pagination,
 }) => {
-  const [filteredData, setFilteredData] = useState<DataType[]>(data);
+  const [filteredData, setFilteredData] = useState<any[]>(data);
 
   const handleSearch = (value: string) => {
     const searchData = data.filter((item) =>
