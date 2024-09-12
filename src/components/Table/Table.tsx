@@ -32,6 +32,7 @@ interface inputProps {
   searchBar?: boolean;
   pagination?: any;
   onButtonClick?: (e: React.MouseEvent) => void;
+  handleRowClick?: (record: any) => void;
 }
 
 const { Text } = Typography;
@@ -47,6 +48,7 @@ const SimpleTable: React.FC<inputProps> = ({
   onButtonClick,
   searchBar,
   pagination,
+  handleRowClick,
 }) => {
   const [filteredData, setFilteredData] = useState<any[]>(data);
 
@@ -55,10 +57,6 @@ const SimpleTable: React.FC<inputProps> = ({
       item.name.toLowerCase().includes(value.toLowerCase())
     );
     setFilteredData(searchData);
-  };
-
-  const handleSort = (value: string) => {
-    // Implement sorting logic here
   };
 
   return (
@@ -103,6 +101,14 @@ const SimpleTable: React.FC<inputProps> = ({
         dataSource={filteredData ?? []}
         columns={columns}
         size="middle"
+        onRow={(record) => {
+          return {
+            style: { cursor: "pointer" },
+            onClick: () => {
+              if (handleRowClick) handleRowClick(record);
+            },
+          };
+        }}
         pagination={pagination}
         className={`d-flex ${styles.customTable} mt-4`}
       />

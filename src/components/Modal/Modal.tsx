@@ -14,11 +14,12 @@ interface Props {
   onOk?: () => void;
   okText: string;
   children: React.ReactNode;
+  headingIcon?: React.ReactNode;
 }
 
 const Modal: React.FC<Props> = forwardRef(
-  ({ heading, onClose, onOpen, okText, children, onOk }, ref) => {
-    const [open, setOpen] = useState(false);
+  ({ heading, onClose, onOpen, okText, children, onOk, headingIcon }, ref) => {
+    const [open, setOpen] = useState(true);
 
     const onCloseModal = () => {
       if (onClose) onClose();
@@ -45,7 +46,7 @@ const Modal: React.FC<Props> = forwardRef(
           zIndex={1111}
           title={
             <ChaiiText className={classNames(styles.heading)}>
-              {heading}
+              {headingIcon && headingIcon} {heading}
             </ChaiiText>
           }
           className={classNames(styles.heading)}

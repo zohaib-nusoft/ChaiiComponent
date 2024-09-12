@@ -243,3 +243,39 @@
     background-color: transparent;
   }
 }
+
+
+.actionBtnDanger {
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  background-color: transparent;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    text-decoration 0.3s ease;
+
+  // Remove any shadows
+  box-shadow: none;
+
+  .btnText {
+    color: $red; // Set the text color to blue
+
+    &:hover {
+      background-color: transparent;
+      text-decoration: underline; // Underline text on hover
+      box-shadow: none;
+    }
+  }
+
+  &.edit {
+    background-color: transparent;
+  }
+
+  &.view {
+    background-color: transparent;
+  }
+}
