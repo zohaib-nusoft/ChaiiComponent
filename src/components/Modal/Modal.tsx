@@ -9,8 +9,8 @@ import styles from "./modal.module.scss";
 interface Props {
   heading?: string;
   ref?: any;
-  onClose?: () => void;
-  onOpen?: () => void;
+  onClose: () => void;
+  onOpen: () => void;
   onOk?: () => void;
   okText: string;
   children: React.ReactNode;
