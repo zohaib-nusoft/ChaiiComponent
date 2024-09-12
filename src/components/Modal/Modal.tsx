@@ -19,7 +19,7 @@ interface Props {
 
 const Modal: React.FC<Props> = forwardRef(
   ({ heading, onClose, onOpen, okText, children, onOk, headingIcon }, ref) => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     const onCloseModal = () => {
       if (onClose) onClose();
