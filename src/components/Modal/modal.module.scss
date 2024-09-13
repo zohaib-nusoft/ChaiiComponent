@@ -1,0 +1,12 @@
+@import '../../colors.scss';
+
+.heading {
+    color: $black;
+    /* H5/medium */
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem;
+    /* 150% */
+}

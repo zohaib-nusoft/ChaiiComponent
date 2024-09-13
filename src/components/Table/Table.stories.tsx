@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { Badge, Checkbox, Space, Typography } from "antd";
 import React from "react";
 import SimpleTable from "./Table";
-import { Checkbox, Space, Typography, Badge } from "antd";
 import styles from "./Table.module.scss"; // Import the SCSS module
 
 interface DataType {
@@ -22,7 +22,6 @@ type Story = StoryObj<typeof SimpleTable>;
 export const Default: Story = {
   args: {
     title: "Resource Augments",
-    sortByOptions: ["Date", "Name", "Status"],
     data: [
       {
         key: "1",

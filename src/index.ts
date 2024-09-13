@@ -14,6 +14,7 @@ import PageHeader from "./components/PageHeader/PageHeader";
 import SplashScreenTemplate from "./components/SplashScreenTemplate/SplashScreenTemplate";
 import SimpleTable from "./components/Table/Table";
 import ChaiiToggle from "./components/Toggle/Toggle";
+import RadioGroup from "./components/radioGroup/radioGroup";
 
 export {
   AppHeader,
@@ -29,6 +30,7 @@ export {
   InputFieldHeader,
   Modal,
   PageHeader,
+  RadioGroup,
   SimpleTable,
   SplashScreenTemplate,
 };

@@ -1,3 +1,4 @@
+import { StepForwardOutlined } from "@ant-design/icons";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import Modal from "./Modal";
@@ -28,6 +29,7 @@ export const Default: Story = {
   ...Template,
   args: {
     heading: "Resource Details",
+    headingIcon: <StepForwardOutlined />,
   },
 };
 
