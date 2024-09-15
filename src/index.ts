@@ -1,8 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../../sharedStyles.scss";
 import AppHeader from "./components/AppHeader/AppHeader";
 import AuthScreenTemplate from "./components/AuthScreenTemplate/AuthScreenTemplate";
 import Breadcrumb from "./components/Breadcrumb/Breadcrumb";
 import Button from "./components/Button/Button";
+import Card from "./components/Card/Card";
 import ChaiiFlatlistCards from "./components/ChaiiFlatlistCards/ChaiiFlatlistCards";
 import ChaiiText from "./components/ChaiiText/ChaiiText";
 import ChaiiDatePicker from "./components/DatePickerInput/DataPickerInput";
@@ -15,12 +17,12 @@ import SplashScreenTemplate from "./components/SplashScreenTemplate/SplashScreen
 import SimpleTable from "./components/Table/Table";
 import ChaiiToggle from "./components/Toggle/Toggle";
 import RadioGroup from "./components/radioGroup/radioGroup";
-
 export {
   AppHeader,
   AuthScreenTemplate,
   Breadcrumb,
   Button,
+  Card,
   ChaiiDatePicker,
   ChaiiFlatlistCards,
   ChaiiText,

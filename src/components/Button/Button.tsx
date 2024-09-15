@@ -18,6 +18,7 @@ interface ButtonProps {
   btnType?: "button" | "submit" | "reset";
   onClick?: (e: React.MouseEvent) => void;
   icon?: React.ReactNode;
+  disabled?: boolean;
 }
 
 const { Text } = Typography;
@@ -28,14 +29,20 @@ const ChaiiButton: React.FC<ButtonProps> = ({
   btnType = "button",
   onClick,
   icon,
+  disabled,
 }) => {
   const buttonClass = classNames(
-    styles[btnClass],
+    styles[disabled ? "disabledBtn" : btnClass],
     "d-flex justify-content-center align-items-center"
   );
 
   return (
-    <AntdButton htmlType={btnType} className={buttonClass} onClick={onClick}>
+    <AntdButton
+      disabled={disabled}
+      htmlType={btnType}
+      className={buttonClass}
+      onClick={onClick}
+    >
       {icon && <span className={styles.icon}>{icon}</span>}
       {label && <Text className={styles.btnText}>{label}</Text>}
     </AntdButton>
