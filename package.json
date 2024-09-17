@@ -1,6 +1,6 @@
 {
   "name": "chaii_component",
-  "version": "2.1.36",
+  "version": "2.1.37",
   "description": "test",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
@@ -65,9 +65,13 @@
     "@types/react-router-dom": "^5.3.3",
     "antd": "^5.19.4",
     "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.4",
     "classnames": "^2.5.1",
+    "dayjs": "^1.11.13",
     "moment": "^2.30.1",
+    "react-chartjs-2": "^5.2.0",
     "react-router-dom": "^6.26.0",
+    "recharts": "^2.12.7",
     "style-loader": "2.0.0"
   }
 }

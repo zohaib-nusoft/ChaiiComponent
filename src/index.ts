@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../sharedStyles.scss";
+import "./sharedStyles.scss";
 import AppHeader from "./components/AppHeader/AppHeader";
 import AuthScreenTemplate from "./components/AuthScreenTemplate/AuthScreenTemplate";
 import Breadcrumb from "./components/Breadcrumb/Breadcrumb";
@@ -17,6 +17,9 @@ import SplashScreenTemplate from "./components/SplashScreenTemplate/SplashScreen
 import SimpleTable from "./components/Table/Table";
 import ChaiiToggle from "./components/Toggle/Toggle";
 import RadioGroup from "./components/radioGroup/radioGroup";
+import LineChart from "./components/LineChart/LineChart";
+
+
 export {
   AppHeader,
   AuthScreenTemplate,
@@ -35,4 +38,5 @@ export {
   RadioGroup,
   SimpleTable,
   SplashScreenTemplate,
+  LineChart
 };
