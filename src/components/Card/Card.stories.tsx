@@ -16,7 +16,10 @@ const Template: Story = {
 
 export const Default: Story = {
   ...Template,
-  args: {},
+  args: {
+    heading: "Heading",
+    desc: "Sub-Text",
+  },
 };
 
 export default meta;
