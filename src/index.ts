@@ -18,7 +18,7 @@ import SimpleTable from "./components/Table/Table";
 import ChaiiToggle from "./components/Toggle/Toggle";
 import RadioGroup from "./components/radioGroup/radioGroup";
 import LineChart from "./components/LineChart/LineChart";
-
+import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
 
 export {
   AppHeader,
@@ -38,5 +38,6 @@ export {
   RadioGroup,
   SimpleTable,
   SplashScreenTemplate,
-  LineChart
+  LineChart,
+  ButtonGroup,
 };

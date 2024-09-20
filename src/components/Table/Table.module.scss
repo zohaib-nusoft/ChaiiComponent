@@ -3,13 +3,10 @@
 
 .tableContainer {
   background-color: $white;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
 }
 
-.tableHeader {
-  margin-bottom: 1rem;
-}
 
 .customTable {
   flex-direction: column;
@@ -17,7 +14,7 @@
 
 .customTable .ant-table-body {
   flex: 1;
-  min-height: 25rem; // Ensure this matches the height for 10 rows
+  min-height: 20rem; // Ensure this matches the height for 10 rows
   display: block;
 }
 

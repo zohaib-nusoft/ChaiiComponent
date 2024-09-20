@@ -22,6 +22,7 @@ type Story = StoryObj<typeof SimpleTable>;
 export const Default: Story = {
   args: {
     title: "Resource Augments",
+    searchBar: true,
     data: [
       {
         key: "1",

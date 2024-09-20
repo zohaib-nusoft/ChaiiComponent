@@ -6,6 +6,8 @@ const meta: Meta<typeof LineChart> = {
   title: "Components/LineChart",
   component: LineChart,
   argTypes: {
+    height: { control: "number" },
+    width: { control: "number" },
     data: {
       control: "object",
     },
@@ -21,6 +23,8 @@ const Template: Story = {
 export const Default: Story = {
   ...Template,
   args: {
+    height: 300,
+    width: 500,
     data: {
       labels: ["January", "February", "March", "April", "May", "June", "July"],
       datasets: [

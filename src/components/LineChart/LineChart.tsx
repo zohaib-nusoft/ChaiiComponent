@@ -10,6 +10,7 @@ import {
   Legend,
 } from "chart.js";
 import { colors } from "../../colors";
+import { Content } from "antd/es/layout/layout";
 
 // Register the components
 ChartJS.register(
@@ -22,6 +23,8 @@ ChartJS.register(
 );
 
 interface props {
+  height: string | number;
+  width: string | number;
   data: {
     labels: string[];
     datasets: {
@@ -33,7 +36,7 @@ interface props {
   };
 }
 
-const LineChart = ({ data }: props) => {
+const LineChart = ({ data, height, width }: props) => {
   const options: any = {
     scales: {
       x: {
@@ -82,7 +85,11 @@ const LineChart = ({ data }: props) => {
     },
   };
 
-  return <Line data={data} options={options} />;
+  return (
+    <Content className="w-100 h-100">
+      <Line height={height} width={width} data={data} options={options} />
+    </Content>
+  );
 };
 
 export default LineChart;
