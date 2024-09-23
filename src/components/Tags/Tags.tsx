@@ -1,7 +1,7 @@
 import { Badge, Tag, Typography } from "antd";
 import styles from "./Tags.module.scss";
 import React from "react";
-import { STATUS } from "../constants/resource-status.enum";
+import { ACTION, STATUS } from "../constants/resource-status.enum";
 
 const { Text } = Typography;
 
@@ -24,7 +24,7 @@ const StatusTag: React.FC<StatusTagProps> = ({ tags, className }) => {
             {tags?.toString().toUpperCase()}
           </Text>
         </Tag>
-      ) : tags?.toString() === STATUS.BUSY ? (
+      ) : tags?.toString() === STATUS.BUSY || ACTION.RESTRICT ? (
         <Tag
           color="error"
           icon={<Badge className={`${{ className }} me-1`} status="error" />}
@@ -33,7 +33,7 @@ const StatusTag: React.FC<StatusTagProps> = ({ tags, className }) => {
             {tags?.toString().toUpperCase()}
           </Text>
         </Tag>
-      ) : tags?.toString() === STATUS.COMPLETED ? (
+      ) : tags?.toString() === STATUS.COMPLETED || ACTION.ALLOW ? (
         <Tag
           color="success"
           icon={<Badge className={`${{ className }} me-1`} status="success" />}

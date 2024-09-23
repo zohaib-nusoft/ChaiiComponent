@@ -2,5 +2,10 @@ export enum STATUS {
   AVAILABLE = "Available",
   VACATION = "Vacation",
   BUSY = "Busy",
-  COMPLETED = "Completed",
+  COMPLETED = "Completed"
+}
+
+export enum ACTION {
+  ALLOW = "Allow",
+  RESTRICT = "Restrict"
 }
