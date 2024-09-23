@@ -1,6 +1,6 @@
 {
   "name": "chaii_component",
-  "version": "2.1.38",
+  "version": "2.1.47",
   "description": "test",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
