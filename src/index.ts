@@ -19,6 +19,7 @@ import ChaiiToggle from "./components/Toggle/Toggle";
 import RadioGroup from "./components/radioGroup/radioGroup";
 import LineChart from "./components/LineChart/LineChart";
 import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
+import StatusTag from "./components/Tags/Tags";
 
 export {
   AppHeader,
@@ -40,4 +41,5 @@ export {
   SplashScreenTemplate,
   LineChart,
   ButtonGroup,
+  StatusTag,
 };

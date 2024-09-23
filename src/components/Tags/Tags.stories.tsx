@@ -1,14 +1,14 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import StatusTag from "./Tags";
-import { STATUS } from "../constants/resource-status.enum";
+import { RESOURCESTATUS } from "../constants/enums";
 
 const meta: Meta<typeof StatusTag> = {
   title: "Components/StatusTag",
   component: StatusTag,
   argTypes: {
     className: { control: "text" },
-    tags: { control: "select", options: Object.values(STATUS) }, // Assuming STATUS is an enum
+    tags: { control: "select", options: Object.values(RESOURCESTATUS) }, // Assuming STATUS is an enum
   },
 };
 
@@ -21,7 +21,7 @@ const Template: Story = {
 export const Available: Story = {
   ...Template,
   args: {
-    tags: STATUS.AVAILABLE,
+    tags: RESOURCESTATUS.AVAILABLE,
     className: "",
   },
 };
@@ -29,7 +29,7 @@ export const Available: Story = {
 export const Busy: Story = {
   ...Template,
   args: {
-    tags: STATUS.BUSY,
+    tags: RESOURCESTATUS.BUSY,
     className: "",
   },
 };
@@ -37,7 +37,7 @@ export const Busy: Story = {
 export const Completed: Story = {
   ...Template,
   args: {
-    tags: STATUS.COMPLETED,
+    tags: RESOURCESTATUS.COMPLETED,
     className: "",
   },
 };
@@ -45,7 +45,7 @@ export const Completed: Story = {
 export const Vacation: Story = {
   ...Template,
   args: {
-    tags: STATUS.VACATION,
+    tags: RESOURCESTATUS.VACATION,
     className: "",
   },
 };
