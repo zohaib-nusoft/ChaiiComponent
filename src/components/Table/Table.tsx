@@ -58,6 +58,7 @@ const SimpleTable: React.FC<inputProps> = ({
   onChangeFilter,
   onSearch,
   placeholderSearch,
+  sortByValue,
 }) => {
   const [searchValue, setSearchValue] = useState("");
 
@@ -72,7 +73,9 @@ const SimpleTable: React.FC<inputProps> = ({
 
   return (
     <Content className={`${styles.tableContainer} d-flex flex-column p-2`}>
-      <Row className={`d-flex align-items-center justify-content-between`}>
+      <Row
+        className={`d-flex align-items-center  ${title ? "justify-content-between" : "justify-content-end"}`}
+      >
         {title && (
           <Col span={10}>
             <Text className={styles.text_styles}>{title}</Text>
@@ -87,6 +90,7 @@ const SimpleTable: React.FC<inputProps> = ({
               <ButtonGroup
                 onChangeValue={onChangeFilter}
                 options={sortByOptions}
+                value={sortByValue}
               />
             )}
             {searchBar && (

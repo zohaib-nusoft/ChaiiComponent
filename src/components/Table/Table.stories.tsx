@@ -21,7 +21,6 @@ type Story = StoryObj<typeof SimpleTable>;
 
 export const Default: Story = {
   args: {
-    title: "Resource Augments",
     searchBar: true,
     data: [
       {
@@ -38,6 +37,35 @@ export const Default: Story = {
         age: "20",
         status: "Vacation",
       },
+      {
+        key: "2",
+        name: "Company B",
+        userName: "user2",
+        age: "20",
+        status: "Vacation",
+      },
+      {
+        key: "2",
+        name: "Company B",
+        userName: "user2",
+        age: "20",
+        status: "Vacation",
+      },
+      {
+        key: "2",
+        name: "Company B",
+        userName: "user2",
+        age: "20",
+        status: "Vacation",
+      },
+      {
+        key: "2",
+        name: "Company B",
+        userName: "user2",
+        age: "20",
+        status: "Vacation",
+      },
+
       // ... other data entries
     ],
     columns: [
