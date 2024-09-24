@@ -1,0 +1,47 @@
+@import "../../sharedStyles.scss";
+@import "../../colors.scss";
+
+.status_text_success {
+  font-family: Poppins;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+  color: $successText;
+}
+
+.status_text_processing {
+  font-family: Poppins;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+  color: $processingText;
+}
+
+.status_text_warning {
+  font-family: Poppins;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+  color: $warningText;
+}
+
+.status_text_error {
+  font-family: Poppins;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+  color: $errorText;
+}
+
+.status_text_default {
+  font-family: Poppins;
+  font-size: 0.7rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1rem;
+  color: $defaultText;
+}

@@ -1,8 +1,17 @@
-import { Col, Input, Row, Select, Table, Typography } from "antd";
+import {
+  CheckboxOptionType,
+  Col,
+  Input,
+  Row,
+  Select,
+  Table,
+  Typography,
+} from "antd";
 import { Content } from "antd/es/layout/layout";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ChaiiButton from "../Button/Button";
 import styles from "./Table.module.scss";
+import ButtonGroup from "../ButtonGroup/ButtonGroup";
 
 interface inputProps {
   columns: {
@@ -25,11 +34,15 @@ interface inputProps {
   pagination?: any;
   onButtonClick?: (e: React.MouseEvent) => void;
   handleRowClick?: (record: any) => void;
+  sortByValue?: string;
+  sortByOptions?: (string | number | CheckboxOptionType<any>)[] | undefined;
+  onChangeFilter?: (value: any) => void;
+  onSearch?: (value: string) => void;
+  placeholderSearch?: string;
 }
 
 const { Text } = Typography;
 const { Search } = Input;
-const { Option } = Select;
 
 const SimpleTable: React.FC<inputProps> = ({
   columns,
@@ -41,20 +54,27 @@ const SimpleTable: React.FC<inputProps> = ({
   searchBar,
   pagination,
   handleRowClick,
+  sortByOptions,
+  onChangeFilter,
+  onSearch,
+  placeholderSearch,
+  sortByValue,
 }) => {
-  const [filteredData, setFilteredData] = useState<any[]>(data);
+  const [searchValue, setSearchValue] = useState("");
 
-  const handleSearch = (value: string) => {
-    const searchData = data.filter((item) =>
-      item.name.toLowerCase().includes(value.toLowerCase())
-    );
-    setFilteredData(searchData);
-  };
+  useEffect(() => {
+    const debounceTimeout = setTimeout(() => {
+      if (onSearch) onSearch(searchValue);
+    }, 1000);
+    return () => {
+      clearTimeout(debounceTimeout);
+    };
+  }, [searchValue]);
 
   return (
-    <Content className={`${styles.tableContainer} p-4`}>
+    <Content className={`${styles.tableContainer} d-flex flex-column p-2`}>
       <Row
-        className={`d-flex align-items-center justify-content-between ${styles.tableHeader}`}
+        className={`d-flex align-items-center  ${title ? "justify-content-between" : "justify-content-end"}`}
       >
         {title && (
           <Col span={10}>
@@ -63,15 +83,23 @@ const SimpleTable: React.FC<inputProps> = ({
         )}
         <Col
           span={14}
-          className={`d-flex align-items-center justify-content-end gap-2 ${styles.controls}`}
+          className={`d-flex align-items-center justify-content-end gap-1 ${styles.controls}`}
         >
           <Row gutter={20}>
+            {sortByOptions && (
+              <ButtonGroup
+                onChangeValue={onChangeFilter}
+                options={sortByOptions}
+                value={sortByValue}
+              />
+            )}
             {searchBar && (
               <>
                 <Col>
                   <Search
-                    placeholder="Search Companies"
-                    onSearch={handleSearch}
+                    placeholder={placeholderSearch}
+                    onSearch={(val) => setSearchValue(val)}
+                    value={searchValue}
                     className={styles.searchBar}
                   />
                 </Col>
@@ -90,9 +118,9 @@ const SimpleTable: React.FC<inputProps> = ({
         </Col>
       </Row>
       <Table
-        dataSource={filteredData ?? []}
+        dataSource={data ?? []}
         columns={columns}
-        size="middle"
+        size="small"
         onRow={(record) => {
           return {
             style: { cursor: "pointer" },
@@ -102,7 +130,7 @@ const SimpleTable: React.FC<inputProps> = ({
           };
         }}
         pagination={pagination}
-        className={`d-flex ${styles.customTable} mt-4`}
+        className={`d-flex ${styles.customTable} mt-3`}
       />
     </Content>
   );

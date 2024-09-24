@@ -25,7 +25,7 @@ const InputFieldHeader: React.FC<Props> = ({
   btnType = "button", // Default value
 }) => {
   return (
-    <div className="d-flex justify-content-between align-items-center p-3">
+    <div className="d-flex justify-content-between align-items-center px-3 py-1">
       <Typography.Text className={styles.heading}>{heading}</Typography.Text>
       {buttonText && (
         <ChaiiButton

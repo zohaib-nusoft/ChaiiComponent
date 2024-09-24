@@ -3,44 +3,16 @@
 
 .tableContainer {
   background-color: $white;
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
-}
-
-.tableHeader {
-  margin-bottom: 1rem;
 }
 
 .customTable {
   flex-direction: column;
+  height: 100%;
 }
 
-.customTable .ant-table-body {
-  flex: 1;
-  min-height: 25rem; // Ensure this matches the height for 10 rows
-  display: block;
-}
 
-.customTable .ant-table-placeholder {
-  height: 100%; // Ensures the placeholder takes up remaining space
-}
-
-.customTable .ant-table-row {
-  min-height: 2.5rem; // Adjust this to match the height of a single row
-}
-
-.customTable .ant-table-tbody>tr {
-  height: 2.5rem; // Ensure each row has a fixed height
-}
-
-.customTable .ant-table-tbody>tr:last-child td {
-  border-bottom: 0; // Remove border for the last row to make it look clean
-}
-
-.customTable .ant-pagination {
-  margin-top: 1rem; // Add some space above the pagination control
-  align-self: flex-end; // Ensure pagination is at the bottom of the table
-}
 
 .table-action-buttons {
   color: $primary;

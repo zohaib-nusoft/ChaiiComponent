@@ -17,7 +17,7 @@ const PageHeader: React.FC<Props> = ({
   btnType = "button",
 }) => {
   return (
-    <div className={`d-flex flex-column gap-3 ${styles.pageHeaderContainer}`}>
+    <div className={`d-flex flex-column gap-2 ${styles.pageHeaderContainer}`}>
       <InputFieldHeader
         heading={heading}
         buttonText={buttonText}
