@@ -75,10 +75,10 @@ const LineChart = ({ data, height, width }: props) => {
                   (key) =>
                     `${key.charAt(0).toUpperCase() + key.slice(1)}: ${customData[key]}`
                 )
-                .join(", ");
+                .join("\n ");
             }
 
-            return `Value: ${y} (${customDataText})`;
+            return `Total: ${y} \n (${customDataText})`;
           },
         },
       },

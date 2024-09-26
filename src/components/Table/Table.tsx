@@ -120,7 +120,7 @@ const SimpleTable: React.FC<inputProps> = ({
       <Table
         dataSource={data ?? []}
         columns={columns}
-        size="small"
+        size="middle"
         onRow={(record) => {
           return {
             style: { cursor: "pointer" },
