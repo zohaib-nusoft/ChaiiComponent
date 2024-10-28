@@ -1,3 +1,4 @@
+import { CloseOutlined } from "@ant-design/icons";
 import { Modal as AntdModal } from "antd";
 import { Content } from "antd/es/layout/layout";
 import classNames from "classnames";
@@ -28,7 +29,6 @@ const Modal: React.FC<Props> = forwardRef(
 
     const onOkModal = () => {
       if (onOk) onOk();
-      setOpen(false);
     };
     const onOpenModal = () => {
       if (onOpen) onOpen();
@@ -44,6 +44,7 @@ const Modal: React.FC<Props> = forwardRef(
         <AntdModal
           //modal zIndex will not work if <=1000
           zIndex={1111}
+          closeIcon={<CloseOutlined onClick={() => setOpen(false)} />}
           title={
             <ChaiiText className={classNames(styles.heading)}>
               {headingIcon && headingIcon} {heading}
@@ -51,6 +52,7 @@ const Modal: React.FC<Props> = forwardRef(
           }
           className={classNames(styles.heading)}
           open={open}
+          destroyOnClose
           okText={okText}
           footer={
             <Content className="w-100 d-flex gap-2 justify-content-end">

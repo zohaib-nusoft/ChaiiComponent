@@ -7,7 +7,11 @@
 }
 
 .header_app {
-  background: $white !important;
+  background: linear-gradient(90deg, #2F54EB 27%, #04D178 100%) !important;
+  box-shadow: 0rem 1.5rem 1.5rem 0rem $light-shadow;
+  border-style: solid;
+  border-width: 0rem 0rem 0.1rem 0rem;
+  border-color: $light-shadow;
 }
 
 .logo {
@@ -18,15 +22,21 @@
 .icon {
   font-size: 1rem;
   cursor: pointer;
+  color: $white;
 }
 
 .avatar {
-  background-color: $black;
-  color: $white;
+  background-color: $white;
+  color: $black;
   width: 2rem;
   height: 2rem;
+
+  .text_styles {
+    color: $white;
+  }
 }
 
 .userName {
-  margin-left: 0.5rem;
+  margin-left: 0rem;
+  color: $white;
 }

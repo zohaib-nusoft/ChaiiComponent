@@ -1,15 +1,16 @@
-import React from "react";
-import { Layout, Avatar, Badge } from "antd";
 import {
-  SearchOutlined,
-  QuestionCircleOutlined,
   BellOutlined,
   GlobalOutlined,
+  QuestionCircleOutlined,
+  SearchOutlined,
 } from "@ant-design/icons";
-import styles from "./AppHeader.module.scss";
-import classNames from "classnames";
+import { Avatar, Badge, Layout } from "antd";
 import "bootstrap/dist/css/bootstrap.min.css";
+import classNames from "classnames";
+import React from "react";
 import "../../CustomBootstrap.scss";
+import ChaiiText from "../ChaiiText/ChaiiText";
+import styles from "./AppHeader.module.scss";
 
 const { Header } = Layout;
 
@@ -46,7 +47,7 @@ const AppHeader: React.FC<Props> = ({
           <Avatar className={styles.avatar} src={avatarImage}>
             {!avatarImage && userName.charAt(0)}
           </Avatar>
-          <span className={styles.userName}>{userName}</span>
+          <ChaiiText className={styles.userName}>{userName}</ChaiiText>
           <GlobalOutlined className={styles.icon} />
         </div>
       ) : null}

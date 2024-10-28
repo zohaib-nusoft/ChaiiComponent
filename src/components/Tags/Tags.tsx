@@ -1,7 +1,7 @@
 import { Tag, Typography } from "antd";
-import styles from "./Tags.module.scss";
 import React from "react";
 import { ACTION, PROJECTSTATUS, RESOURCESTATUS } from "../constants/enums";
+import styles from "./Tags.module.scss";
 
 const { Text } = Typography;
 
@@ -53,6 +53,12 @@ const StatusTag: React.FC<StatusTagProps> = ({ tags, className, onClick }) => {
       ) : tags?.toString() === PROJECTSTATUS.ACTIVE ? (
         <Tag color="success" onClick={onClick}>
           <Text className={styles.status_text_success}>
+            {tags?.toString().toUpperCase()}
+          </Text>
+        </Tag>
+      ) : tags?.toString() === ACTION.DELETE ? (
+        <Tag color="error" onClick={onClick}>
+          <Text className={styles.status_text_error}>
             {tags?.toString().toUpperCase()}
           </Text>
         </Tag>

@@ -1,17 +1,10 @@
-import {
-  CheckboxOptionType,
-  Col,
-  Input,
-  Row,
-  Select,
-  Table,
-  Typography,
-} from "antd";
+import { CheckboxOptionType, Col, Input, Row, Table, Typography } from "antd";
 import { Content } from "antd/es/layout/layout";
 import React, { useEffect, useState } from "react";
 import ChaiiButton from "../Button/Button";
-import styles from "./Table.module.scss";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import ChaiiToggle from "../Toggle/Toggle";
+import styles from "./Table.module.scss";
 
 interface inputProps {
   columns: {
@@ -39,6 +32,10 @@ interface inputProps {
   onChangeFilter?: (value: any) => void;
   onSearch?: (value: string) => void;
   placeholderSearch?: string;
+  toggle?: boolean;
+  suffix?: string;
+  checkedToggle?: boolean;
+  onChangeToggle?: (i: boolean) => void | undefined;
 }
 
 const { Text } = Typography;
@@ -59,12 +56,21 @@ const SimpleTable: React.FC<inputProps> = ({
   onSearch,
   placeholderSearch,
   sortByValue,
+  toggle,
+  suffix,
+  checkedToggle,
+  onChangeToggle,
 }) => {
   const [searchValue, setSearchValue] = useState("");
+  const [initial, setInitial] = useState(true);
 
   useEffect(() => {
     const debounceTimeout = setTimeout(() => {
-      if (onSearch) onSearch(searchValue);
+      if (!initial) {
+        if (onSearch) onSearch(searchValue);
+      } else {
+        setInitial(false);
+      }
     }, 1000);
     return () => {
       clearTimeout(debounceTimeout);
@@ -77,15 +83,26 @@ const SimpleTable: React.FC<inputProps> = ({
         className={`d-flex align-items-center  ${title ? "justify-content-between" : "justify-content-end"}`}
       >
         {title && (
-          <Col span={10}>
+          <Col span={6}>
             <Text className={styles.text_styles}>{title}</Text>
           </Col>
         )}
         <Col
-          span={14}
+          span={18}
           className={`d-flex align-items-center justify-content-end gap-1 ${styles.controls}`}
         >
           <Row gutter={20}>
+            {toggle && (
+              <>
+                <Col className="d-flex align-items-center justify-content-center">
+                  <ChaiiToggle
+                    suffix={suffix}
+                    onChange={onChangeToggle}
+                    checked={checkedToggle}
+                  />
+                </Col>
+              </>
+            )}
             {sortByOptions && (
               <ButtonGroup
                 onChangeValue={onChangeFilter}
@@ -98,7 +115,7 @@ const SimpleTable: React.FC<inputProps> = ({
                 <Col>
                   <Search
                     placeholder={placeholderSearch}
-                    onSearch={(val) => setSearchValue(val)}
+                    onChange={(val) => setSearchValue(val.target.value)}
                     value={searchValue}
                     className={styles.searchBar}
                   />

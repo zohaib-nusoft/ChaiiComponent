@@ -1,6 +1,6 @@
 {
-  "name": "chaii_component",
-  "version": "2.1.61",
+  "name": "nusoft_components",
+  "version": "0.1.11",
   "description": "test",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",

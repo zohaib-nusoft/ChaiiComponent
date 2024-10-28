@@ -7,10 +7,11 @@ export enum RESOURCESTATUS {
 
 export enum PROJECTSTATUS {
   ACTIVE = "Active",
-  CLOSED = 'Closed'
+  CLOSED = "Closed",
 }
 
 export enum ACTION {
   ALLOW = "Allow",
   RESTRICT = "Restrict",
+  DELETE = "Delete",
 }
