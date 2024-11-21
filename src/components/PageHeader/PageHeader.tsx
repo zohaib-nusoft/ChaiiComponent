@@ -1,10 +1,10 @@
 import React from "react";
+import "../../sharedStyles.scss";
 import InputFieldHeader from "../InputFieldHeader/InputFieldHeader";
 import styles from "./PageHeader.module.scss";
-import "../../sharedStyles.scss";
 
 interface Props {
-  heading: string;
+  heading: string | React.ReactNode;
   buttonText?: string;
   onButtonClick?: () => void;
   btnType?: "button" | "submit" | "reset";

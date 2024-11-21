@@ -1,5 +1,11 @@
-import { CheckboxOptionType, Radio, RadioChangeEvent } from "antd";
+import {
+  CheckboxOptionType,
+  ConfigProvider,
+  Radio,
+  RadioChangeEvent,
+} from "antd";
 import React, { useState } from "react";
+import { colors } from "../../colors";
 import "../../sharedStyles.scss";
 
 interface props {
@@ -17,7 +23,25 @@ const ButtonGroup: React.FC<props> = ({ value, options, onChangeValue }) => {
   };
 
   return (
-    <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: colors.primary,
+        },
+
+        components: {
+          Table: {
+            headerColor: colors.textColor,
+            rowSelectedBg: colors.white,
+            rowSelectedHoverBg: colors.hover,
+          },
+          Radio: {
+            buttonCheckedBg: colors.primary,
+            buttonSolidCheckedActiveBg: colors.primary,
+          },
+        },
+      }}
+    >
       <Radio.Group
         options={options}
         onChange={onChange}
@@ -25,7 +49,7 @@ const ButtonGroup: React.FC<props> = ({ value, options, onChangeValue }) => {
         optionType="button"
         buttonStyle="solid"
       />
-    </>
+    </ConfigProvider>
   );
 };
 

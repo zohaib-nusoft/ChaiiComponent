@@ -1,17 +1,10 @@
-import {
-  CheckboxOptionType,
-  Col,
-  Input,
-  Row,
-  Select,
-  Table,
-  Typography,
-} from "antd";
+import { CheckboxOptionType, Col, Input, Row, Table, Typography } from "antd";
 import { Content } from "antd/es/layout/layout";
 import React, { useEffect, useState } from "react";
 import ChaiiButton from "../Button/Button";
-import styles from "./Table.module.scss";
 import ButtonGroup from "../ButtonGroup/ButtonGroup";
+import ChaiiToggle from "../Toggle/Toggle";
+import styles from "./Table.module.scss";
 
 interface inputProps {
   columns: {
@@ -22,23 +15,37 @@ interface inputProps {
   }[];
   data: any[];
   title?: string;
-  buttonLabel?: string;
-  buttonClass?:
-    | "filledBtn"
-    | "filledBtnLarge"
-    | "whiteBtn"
-    | "roundBtn"
-    | "iconBtnCircle"
-    | "addRowBtn";
-  searchBar?: boolean;
   pagination?: any;
-  onButtonClick?: (e: React.MouseEvent) => void;
   handleRowClick?: (record: any) => void;
-  sortByValue?: string;
-  sortByOptions?: (string | number | CheckboxOptionType<any>)[] | undefined;
+  sortBy?:
+    | {
+        sortByOption?: (string | number | CheckboxOptionType<any>)[];
+        sortByValue?: string;
+      }
+    | undefined;
   onChangeFilter?: (value: any) => void;
-  onSearch?: (value: string) => void;
-  placeholderSearch?: string;
+  toggle?:
+    | {
+        onChangeToggle?: (i: boolean) => void | undefined;
+        checkedToggle?: boolean;
+        suffix?: string;
+      }
+    | undefined;
+
+  search?: { onSearch: (value: string) => void; placeholder?: string } | false;
+  button?:
+    | {
+        label: string;
+        onClick?: (e: React.MouseEvent) => void;
+        buttonClass?:
+          | "filledBtn"
+          | "filledBtnLarge"
+          | "whiteBtn"
+          | "roundBtn"
+          | "iconBtnCircle"
+          | "addRowBtn";
+      }
+    | undefined;
 }
 
 const { Text } = Typography;
@@ -48,24 +55,25 @@ const SimpleTable: React.FC<inputProps> = ({
   columns,
   data,
   title,
-  buttonLabel,
-  buttonClass,
-  onButtonClick,
-  searchBar,
   pagination,
   handleRowClick,
-  sortByOptions,
   onChangeFilter,
-  onSearch,
-  placeholderSearch,
-  sortByValue,
+  toggle,
+  sortBy,
+  button,
+  search,
 }) => {
   const [searchValue, setSearchValue] = useState("");
+  const [initial, setInitial] = useState(true);
 
   useEffect(() => {
     const debounceTimeout = setTimeout(() => {
-      if (onSearch) onSearch(searchValue);
-    }, 1000);
+      if (!initial) {
+        if (search) search.onSearch(searchValue);
+      } else {
+        setInitial(false);
+      }
+    }, 500);
     return () => {
       clearTimeout(debounceTimeout);
     };
@@ -77,28 +85,39 @@ const SimpleTable: React.FC<inputProps> = ({
         className={`d-flex align-items-center  ${title ? "justify-content-between" : "justify-content-end"}`}
       >
         {title && (
-          <Col span={10}>
+          <Col span={6}>
             <Text className={styles.text_styles}>{title}</Text>
           </Col>
         )}
         <Col
-          span={14}
+          span={18}
           className={`d-flex align-items-center justify-content-end gap-1 ${styles.controls}`}
         >
           <Row gutter={20}>
-            {sortByOptions && (
+            {toggle && (
+              <>
+                <Col className="d-flex align-items-center justify-content-center">
+                  <ChaiiToggle
+                    suffix={toggle.suffix}
+                    onChange={toggle.onChangeToggle}
+                    checked={toggle.checkedToggle}
+                  />
+                </Col>
+              </>
+            )}
+            {sortBy && (
               <ButtonGroup
                 onChangeValue={onChangeFilter}
-                options={sortByOptions}
-                value={sortByValue}
+                options={sortBy.sortByOption}
+                value={sortBy.sortByValue}
               />
             )}
-            {searchBar && (
+            {search && (
               <>
                 <Col>
                   <Search
-                    placeholder={placeholderSearch}
-                    onSearch={(val) => setSearchValue(val)}
+                    placeholder={search.placeholder}
+                    onChange={(val) => setSearchValue(val.target.value)}
                     value={searchValue}
                     className={styles.searchBar}
                   />
@@ -106,11 +125,11 @@ const SimpleTable: React.FC<inputProps> = ({
               </>
             )}
             <Col>
-              {buttonLabel && buttonClass && (
+              {button && (
                 <ChaiiButton
-                  label={buttonLabel}
-                  btnClass={buttonClass}
-                  onClick={onButtonClick}
+                  label={button.label}
+                  btnClass={button.buttonClass}
+                  onClick={button.onClick}
                 />
               )}
             </Col>
@@ -120,7 +139,7 @@ const SimpleTable: React.FC<inputProps> = ({
       <Table
         dataSource={data ?? []}
         columns={columns}
-        size="small"
+        size="middle"
         onRow={(record) => {
           return {
             style: { cursor: "pointer" },
