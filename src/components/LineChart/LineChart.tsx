@@ -1,16 +1,16 @@
+import { Content } from "antd/es/layout/layout";
+import {
+  CategoryScale,
+  Chart as ChartJS,
+  Legend, // Use CategoryScale instead of TimeScale
+  LinearScale,
+  LineElement,
+  PointElement,
+  Tooltip,
+} from "chart.js";
 import React from "react";
 import { Line } from "react-chartjs-2";
-import {
-  Chart as ChartJS,
-  CategoryScale, // Use CategoryScale instead of TimeScale
-  LinearScale,
-  PointElement,
-  LineElement,
-  Tooltip,
-  Legend,
-} from "chart.js";
 import { colors } from "../../colors";
-import { Content } from "antd/es/layout/layout";
 
 // Register the components
 ChartJS.register(
@@ -28,7 +28,7 @@ interface props {
   data: {
     labels: string[];
     datasets: {
-      data: { x: string; y: number; customData: any }[];
+      data: { x: string; y: number; countByDomain: any }[];
       fill: number;
       backgroundColor: string;
       borderColor: string;
@@ -41,6 +41,16 @@ const LineChart = ({ data, height, width }: props) => {
     scales: {
       x: {
         type: "category", // Use 'category' for month labels
+      },
+      y: {
+        type: "linear",
+        ticks: {
+          stepSize: 1, // Forces the y-axis to use whole number increments
+          callback: function (value: any) {
+            return Number.isInteger(value) ? value : null; // Only display integers
+          },
+        },
+        beginAtZero: true,
       },
     },
     elements: {
@@ -62,23 +72,23 @@ const LineChart = ({ data, height, width }: props) => {
             return `Date: ${tooltipItems[0].label}`;
           },
           label: function (tooltipItem: {
-            raw: { y: string; customData: any };
+            raw: { y: string; countByDomain: any };
           }) {
             // Custom label
-            const { y, customData } = tooltipItem.raw;
+            const { y, countByDomain } = tooltipItem.raw;
             let customDataText = "";
 
-            if (customData) {
-              // Iterate over each key in customData
-              customDataText = Object.keys(customData)
+            if (countByDomain) {
+              // Iterate over each key in countByDomain
+              customDataText = Object.keys(countByDomain)
                 .map(
                   (key) =>
-                    `${key.charAt(0).toUpperCase() + key.slice(1)}: ${customData[key]}`
+                    `${key.charAt(0).toUpperCase() + key.slice(1)}: ${countByDomain[key]}`
                 )
-                .join(", ");
+                .join("\n ");
             }
 
-            return `Value: ${y} (${customDataText})`;
+            return `Total: ${y} \n (${customDataText})`;
           },
         },
       },

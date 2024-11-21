@@ -5,7 +5,7 @@ import "../../sharedStyles.scss";
 import styles from "./InputFieldHeader.module.scss";
 
 interface Props {
-  heading: string;
+  heading: string | React.ReactNode;
   buttonText?: string; // Made optional
   onButtonClick?: () => void; // Made optional
   buttonClass?:
