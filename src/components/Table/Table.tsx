@@ -15,27 +15,37 @@ interface inputProps {
   }[];
   data: any[];
   title?: string;
-  buttonLabel?: string;
-  buttonClass?:
-    | "filledBtn"
-    | "filledBtnLarge"
-    | "whiteBtn"
-    | "roundBtn"
-    | "iconBtnCircle"
-    | "addRowBtn";
-  searchBar?: boolean;
   pagination?: any;
-  onButtonClick?: (e: React.MouseEvent) => void;
   handleRowClick?: (record: any) => void;
-  sortByValue?: string;
-  sortByOptions?: (string | number | CheckboxOptionType<any>)[] | undefined;
+  sortBy?:
+    | {
+        sortByOption?: (string | number | CheckboxOptionType<any>)[];
+        sortByValue?: string;
+      }
+    | undefined;
   onChangeFilter?: (value: any) => void;
-  onSearch?: (value: string) => void;
-  placeholderSearch?: string;
-  toggle?: boolean;
-  suffix?: string;
-  checkedToggle?: boolean;
-  onChangeToggle?: (i: boolean) => void | undefined;
+  toggle?:
+    | {
+        onChangeToggle?: (i: boolean) => void | undefined;
+        checkedToggle?: boolean;
+        suffix?: string;
+      }
+    | undefined;
+
+  search?: { onSearch: (value: string) => void; placeholder?: string } | false;
+  button?:
+    | {
+        label: string;
+        onClick?: (e: React.MouseEvent) => void;
+        buttonClass?:
+          | "filledBtn"
+          | "filledBtnLarge"
+          | "whiteBtn"
+          | "roundBtn"
+          | "iconBtnCircle"
+          | "addRowBtn";
+      }
+    | undefined;
 }
 
 const { Text } = Typography;
@@ -45,21 +55,13 @@ const SimpleTable: React.FC<inputProps> = ({
   columns,
   data,
   title,
-  buttonLabel,
-  buttonClass,
-  onButtonClick,
-  searchBar,
   pagination,
   handleRowClick,
-  sortByOptions,
   onChangeFilter,
-  onSearch,
-  placeholderSearch,
-  sortByValue,
   toggle,
-  suffix,
-  checkedToggle,
-  onChangeToggle,
+  sortBy,
+  button,
+  search,
 }) => {
   const [searchValue, setSearchValue] = useState("");
   const [initial, setInitial] = useState(true);
@@ -67,11 +69,11 @@ const SimpleTable: React.FC<inputProps> = ({
   useEffect(() => {
     const debounceTimeout = setTimeout(() => {
       if (!initial) {
-        if (onSearch) onSearch(searchValue);
+        if (search) search.onSearch(searchValue);
       } else {
         setInitial(false);
       }
-    }, 1000);
+    }, 500);
     return () => {
       clearTimeout(debounceTimeout);
     };
@@ -96,25 +98,25 @@ const SimpleTable: React.FC<inputProps> = ({
               <>
                 <Col className="d-flex align-items-center justify-content-center">
                   <ChaiiToggle
-                    suffix={suffix}
-                    onChange={onChangeToggle}
-                    checked={checkedToggle}
+                    suffix={toggle.suffix}
+                    onChange={toggle.onChangeToggle}
+                    checked={toggle.checkedToggle}
                   />
                 </Col>
               </>
             )}
-            {sortByOptions && (
+            {sortBy && (
               <ButtonGroup
                 onChangeValue={onChangeFilter}
-                options={sortByOptions}
-                value={sortByValue}
+                options={sortBy.sortByOption}
+                value={sortBy.sortByValue}
               />
             )}
-            {searchBar && (
+            {search && (
               <>
                 <Col>
                   <Search
-                    placeholder={placeholderSearch}
+                    placeholder={search.placeholder}
                     onChange={(val) => setSearchValue(val.target.value)}
                     value={searchValue}
                     className={styles.searchBar}
@@ -123,11 +125,11 @@ const SimpleTable: React.FC<inputProps> = ({
               </>
             )}
             <Col>
-              {buttonLabel && buttonClass && (
+              {button && (
                 <ChaiiButton
-                  label={buttonLabel}
-                  btnClass={buttonClass}
-                  onClick={onButtonClick}
+                  label={button.label}
+                  btnClass={button.buttonClass}
+                  onClick={button.onClick}
                 />
               )}
             </Col>

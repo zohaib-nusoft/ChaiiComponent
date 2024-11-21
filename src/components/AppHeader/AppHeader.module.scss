@@ -14,6 +14,14 @@
   border-color: $light-shadow;
 }
 
+.header_app_admin {
+  background: linear-gradient(90deg, #2F54EB 27%, #A586E3 100%) !important;
+  box-shadow: 0rem 1.5rem 1.5rem 0rem $light-shadow;
+  border-style: solid;
+  border-width: 0rem 0rem 0.1rem 0rem;
+  border-color: $light-shadow;
+}
+
 .logo {
   flex: 0 0 auto;
   margin-left: -1rem;

@@ -16,6 +16,9 @@ const meta: Meta<typeof Modal> = {
     onOpen: {
       action: "clicked",
     },
+    isLoading: {
+      action: "toggle",
+    },
   },
 };
 
@@ -30,6 +33,8 @@ export const Default: Story = {
   args: {
     heading: "Resource Details",
     headingIcon: <StepForwardOutlined />,
+    isLoading: true,
+    children: <>test</>,
   },
 };
 

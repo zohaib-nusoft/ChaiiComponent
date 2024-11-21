@@ -1,5 +1,5 @@
-import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 import AppHeader from "./AppHeader";
 
 const meta: Meta<typeof AppHeader> = {
@@ -9,7 +9,6 @@ const meta: Meta<typeof AppHeader> = {
     logo: { table: { disable: true } }, // Disable the control in the Storybook UI
     isAuthenticated: { control: "boolean" },
     userName: { control: "text" },
-    notificationsCount: { control: "number" },
     avatarImage: { control: "text" }, // New control for the avatar image
   },
 };
@@ -25,7 +24,6 @@ export const AuthenticatedNoLogo: Story = {
   args: {
     isAuthenticated: true,
     userName: "Safwan Khan",
-    notificationsCount: 14,
   },
 };
 
@@ -34,8 +32,8 @@ export const AuthenticatedWithAvatarImage: Story = {
   args: {
     isAuthenticated: true,
     userName: "Safwan Khan",
-    notificationsCount: 14,
     avatarImage: "/assets/images/avatar.png", // Example avatar image
+    isAdmin: true,
   },
 };
 
