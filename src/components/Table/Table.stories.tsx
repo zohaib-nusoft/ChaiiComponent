@@ -21,10 +21,6 @@ type Story = StoryObj<typeof SimpleTable>;
 
 export const Default: Story = {
   args: {
-    searchBar: true,
-    toggle: true,
-    checkedToggle: true,
-    suffix: "draft",
     data: [
       {
         key: "1",
@@ -120,9 +116,6 @@ export const Default: Story = {
         ),
       },
     ],
-    buttonLabel: "Add Resource",
-    buttonClass: "filledBtn",
-    onButtonClick: () => alert("Button clicked!"),
   },
 };
 

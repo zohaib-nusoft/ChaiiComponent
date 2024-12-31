@@ -42,6 +42,13 @@ export const Large: Story = {
     btnType: "button",
   },
 };
+export const Disabled: Story = {
+  args: {
+    btnClass: "actionBtn",
+    label: "Large Button",
+    btnType: "button",
+  },
+};
 
 export const White: Story = {
   args: {
@@ -72,6 +79,7 @@ export const ActionEditButton: Story = {
   args: {
     btnClass: "actionBtn",
     label: "Edit",
+
     btnType: "button",
   },
 };
