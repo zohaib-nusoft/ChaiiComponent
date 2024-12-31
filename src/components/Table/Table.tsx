@@ -1,4 +1,12 @@
-import { CheckboxOptionType, Col, Input, Row, Table, Typography } from "antd";
+import {
+  CheckboxOptionType,
+  Col,
+  Input,
+  Row,
+  Skeleton,
+  Table,
+  Typography,
+} from "antd";
 import { Content } from "antd/es/layout/layout";
 import React, { useEffect, useState } from "react";
 import ChaiiButton from "../Button/Button";
@@ -46,6 +54,11 @@ interface inputProps {
           | "addRowBtn";
       }
     | undefined;
+  tableStyle?: "middle" | "large" | "small";
+  isLoading?: boolean;
+  staticHeight?: boolean;
+  heightAdjuster?: number;
+  footer?: () => React.ReactNode | undefined;
 }
 
 const { Text } = Typography;
@@ -62,6 +75,11 @@ const SimpleTable: React.FC<inputProps> = ({
   sortBy,
   button,
   search,
+  tableStyle = "middle",
+  isLoading = false,
+  heightAdjuster = 20,
+  staticHeight,
+  footer,
 }) => {
   const [searchValue, setSearchValue] = useState("");
   const [initial, setInitial] = useState(true);
@@ -78,6 +96,20 @@ const SimpleTable: React.FC<inputProps> = ({
       clearTimeout(debounceTimeout);
     };
   }, [searchValue]);
+
+  const loadingColumns = columns.map((col) => ({
+    ...col,
+    render: (value: any, record: any) =>
+      isLoading ? (
+        <Skeleton.Input active block />
+      ) : (
+        (col.render?.(value, record) ?? value)
+      ),
+  }));
+
+  const tableHeightScroll = `calc(100vh - ${
+    (tableStyle === "small" && !heightAdjuster ? 20 : heightAdjuster) + 7.5
+  }rem)`;
 
   return (
     <Content className={`${styles.tableContainer} d-flex flex-column p-2`}>
@@ -138,8 +170,11 @@ const SimpleTable: React.FC<inputProps> = ({
       </Row>
       <Table
         dataSource={data ?? []}
-        columns={columns}
+        columns={loadingColumns}
+        footer={footer}
+        rowKey={() => `${Math.random()}`}
         size="middle"
+        scroll={{ y: staticHeight ? undefined : tableHeightScroll }}
         onRow={(record) => {
           return {
             style: { cursor: "pointer" },
@@ -149,7 +184,7 @@ const SimpleTable: React.FC<inputProps> = ({
           };
         }}
         pagination={pagination}
-        className={`d-flex ${styles.customTable} mt-3`}
+        className={`d-flex ${styles[`customTable_${tableStyle}`]} mt-3`}
       />
     </Content>
   );
