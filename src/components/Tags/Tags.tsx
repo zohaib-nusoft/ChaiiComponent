@@ -16,7 +16,7 @@ const { Text } = Typography;
 interface StatusTagProps {
   tags: string | string[]; // Adjust type as needed
   className?: string | undefined;
-  color:
+  color?:
     | LiteralUnion<
         | "processing"
         | "error"

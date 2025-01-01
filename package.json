@@ -1,6 +1,6 @@
 {
   "name": "nusoft_components",
-  "version": "0.1.41",
+  "version": "0.1.42",
   "description": "test",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
