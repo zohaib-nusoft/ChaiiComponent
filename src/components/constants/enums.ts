@@ -32,8 +32,8 @@ export enum PAYMENT_STATUS {
 
 export enum TIMESHEET_STATUS {
   PENDING = "Pending Approval",
-  APPROVAL = "Approved",
   REVISION = "Revision Requested",
+  DRAFT = "Draft",
 }
 
 export enum INVOICES_STATUS {

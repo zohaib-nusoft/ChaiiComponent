@@ -4,18 +4,20 @@ import { LiteralUnion } from "antd/es/_util/type";
 import React from "react";
 import {
   ACTION,
+  INVOICES_STATUS,
   PAYMENT_STATUS,
+  PROJECTSTATUS,
   RESOURCESTATUS,
   STATUS,
   TIMESHEET_STATUS,
 } from "../constants/enums";
-import styles from "./Tags.module.scss";
 
 const { Text } = Typography;
 
 interface StatusTagProps {
   tags: string | string[]; // Adjust type as needed
   className?: string | undefined;
+  CustomName?: boolean;
   color?:
     | LiteralUnion<
         | "processing"
@@ -34,6 +36,7 @@ const StatusTag: React.FC<StatusTagProps> = ({
   className,
   onClick,
   color,
+  CustomName,
 }) => {
   const tagArr: {
     name: string | null;
@@ -55,7 +58,6 @@ const StatusTag: React.FC<StatusTagProps> = ({
     { name: ACTION.ALLOW, value: "success" },
     { name: ACTION.RESTRICT, value: "error" },
     { name: ACTION.DELETE, value: "error" },
-    { name: TIMESHEET_STATUS.APPROVAL, value: "success" },
     { name: TIMESHEET_STATUS.PENDING, value: "processing" },
     { name: TIMESHEET_STATUS.REVISION, value: "warning" },
     { name: PAYMENT_STATUS.APPROVED, value: "success" },
@@ -64,7 +66,13 @@ const StatusTag: React.FC<StatusTagProps> = ({
     { name: STATUS.ERROR, value: "error" },
     { name: STATUS.PROCESSING, value: "processing" },
     { name: STATUS.WARNING, value: "warning" },
+    { name: PROJECTSTATUS.ACTIVE, value: "success" },
+    { name: PROJECTSTATUS.CLOSED, value: "error" },
     { name: STATUS.DEFAULT, value: "default" },
+    { name: INVOICES_STATUS.INTRANSIT, value: "processing" },
+    { name: INVOICES_STATUS.PENDING, value: "processing" },
+    { name: INVOICES_STATUS.Paid, value: "success" },
+    { name: TIMESHEET_STATUS.DRAFT, value: "default" },
     { name: null, value: "default" },
   ];
 
@@ -72,16 +80,21 @@ const StatusTag: React.FC<StatusTagProps> = ({
     <>
       {tagArr.map(({ value, name }) => {
         return name?.toLowerCase() === tags.toString().toLowerCase() ? (
-          <Tag color={color ?? value} onClick={onClick}>
-            <Text
-              className={`${styles[`status_text_${className ? className : value}`]} ${className}`}
-            >
+          <Tag className={className} color={color ?? value} onClick={onClick}>
+            {typeof tags === "string"
+              ? tags?.toString().charAt(0).toUpperCase() +
+                tags?.toString().slice(1, tags?.length).toLocaleLowerCase()
+              : ""}
+          </Tag>
+        ) : name === null && CustomName ? (
+          <>
+            <Tag className={className} color={color ?? value} onClick={onClick}>
               {typeof tags === "string"
                 ? tags?.toString().charAt(0).toUpperCase() +
                   tags?.toString().slice(1, tags?.length).toLocaleLowerCase()
                 : ""}
-            </Text>
-          </Tag>
+            </Tag>
+          </>
         ) : (
           <></>
         );

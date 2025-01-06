@@ -55,7 +55,8 @@ export const RequestRevision: Story = {
 export const Pending: Story = {
   ...Template,
   args: {
-    tags: "Pending",
+    CustomName: true,
+    tags: "test",
   },
 };
 
