@@ -121,7 +121,7 @@ const SimpleTable: React.FC<inputProps> = ({
             gutter={20}
           >
             <Col>
-              <Row gutter={20}>
+              <Row className="ms-1" gutter={20}>
                 {sortBy && (
                   <ButtonGroup
                     onChangeValue={onChangeFilter}

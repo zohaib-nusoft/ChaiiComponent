@@ -28,8 +28,11 @@ const AuthScreenTemplate: React.FC<Props> = ({
     : {};
 
   return (
-    <Layout className="h-100 w-100">
-      <Content className="d-flex h-100 w-100">
+    <Layout className="h-100 w-100 position-relative">
+      <Content className="d-flex h-100 w-100 ">
+        {logoPath && (
+          <div className={`position-absolute  ${styles.logo}`}>{logoPath}</div>
+        )}
         <Row className="h-100 w-100">
           <Col
             className={`p-0 h-100  d-flex align-items-center justify-content-start ${styles.leftCol}`}
@@ -37,7 +40,6 @@ const AuthScreenTemplate: React.FC<Props> = ({
             span={12}
           >
             <div className={styles.leftContent}>
-              {logoPath && <div className={styles.logo}>{logoPath}</div>}
               {sloganText && (
                 <Typography.Paragraph className={styles.slogan}>
                   {sloganText}

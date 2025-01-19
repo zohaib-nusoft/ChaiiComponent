@@ -28,6 +28,7 @@ export enum PAYMENT_STATUS {
   PENDING = "Pending payment",
   REVISION = "Revision requested",
   APPROVED = "Approved",
+  CONFIRMATION_PENDING = "Confirmation Pending",
 }
 
 export enum TIMESHEET_STATUS {

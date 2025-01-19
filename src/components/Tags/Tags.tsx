@@ -62,6 +62,7 @@ const StatusTag: React.FC<StatusTagProps> = ({
     { name: TIMESHEET_STATUS.REVISION, value: "warning" },
     { name: PAYMENT_STATUS.APPROVED, value: "success" },
     { name: PAYMENT_STATUS.PENDING, value: "processing" },
+    { name: PAYMENT_STATUS.CONFIRMATION_PENDING, value: "processing" },
     { name: STATUS.SUCCESS, value: "success" },
     { name: STATUS.ERROR, value: "error" },
     { name: STATUS.PROCESSING, value: "processing" },
