@@ -1,8 +1,8 @@
-import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { MemoryRouter, Routes, Route } from "react-router-dom";
+import { Button, Form, Input } from "antd"; // Importing Ant Design components
+import React from "react";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 import AuthScreenTemplate from "./AuthScreenTemplate";
-import { Form, Input, Button } from "antd"; // Importing Ant Design components
 
 const meta: Meta<typeof AuthScreenTemplate> = {
   title: "Components/AuthScreenTemplate",
@@ -57,7 +57,7 @@ export const Default: Story = {
   args: {
     backgroundImagePath: "/assets/images/background1.jpg",
     sloganText: "Welcome to Our Service", // Example slogan text
-    copyrightText: "© 2024 Company Name", // Optional copyright text
+    copyrightText: "© 2025 Company Name", // Optional copyright text
   },
 };
 
@@ -66,7 +66,7 @@ export const CustomRoot: Story = {
   args: {
     backgroundImagePath: "/assets/images/background1.jpg",
     sloganText: "Join Us Today", // Example slogan text
-    copyrightText: "© 2024 Company Name", // Optional copyright text
+    copyrightText: "© 2025 Company Name", // Optional copyright text
   },
 };
 

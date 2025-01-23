@@ -33,6 +33,9 @@
 .logo {
   max-width: 12.5rem;
   margin-bottom: 1.25rem;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 1;
 }
 
 .slogan {
@@ -42,7 +45,7 @@
   font-size: 1.875rem;
   font-style: normal;
   font-weight: 500;
-  width: 23.063rem;
+  width: 55%;
   line-height: 2.5rem;
   text-align: left;
   margin-right: 4rem;

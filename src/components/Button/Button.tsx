@@ -1,6 +1,7 @@
-import { Button as AntdButton, Typography } from "antd";
+import { Button as AntdButton, Tooltip, Typography } from "antd";
 import classNames from "classnames";
 import React from "react";
+import { colors } from "../../colors";
 import styles from "./Button.module.scss";
 
 interface ButtonProps {
@@ -19,6 +20,7 @@ interface ButtonProps {
   onClick?: (e: React.MouseEvent) => void;
   icon?: React.ReactNode;
   disabled?: boolean;
+  toolTipLabel?: string;
 }
 
 const { Text } = Typography;
@@ -30,6 +32,7 @@ const ChaiiButton: React.FC<ButtonProps> = ({
   onClick,
   icon,
   disabled,
+  toolTipLabel,
 }) => {
   const buttonClass = classNames(
     styles[disabled ? "disabledBtn" : btnClass],
@@ -37,15 +40,18 @@ const ChaiiButton: React.FC<ButtonProps> = ({
   );
 
   return (
-    <AntdButton
-      disabled={disabled}
-      htmlType={btnType}
-      className={buttonClass}
-      onClick={onClick}
-    >
-      {icon && <span className={styles.icon}>{icon}</span>}
-      {label && <Text className={styles.btnText}>{label}</Text>}
-    </AntdButton>
+    <Tooltip color={colors.primary} title={toolTipLabel}>
+      <AntdButton
+        disabled={disabled}
+        htmlType={btnType}
+        type={btnClass === "actionBtn" ? "link" : "default"}
+        className={buttonClass}
+        onClick={onClick}
+      >
+        {icon && <span className={styles.icon}>{icon}</span>}
+        {label && <Text className={styles.btnText}>{label}</Text>}
+      </AntdButton>
+    </Tooltip>
   );
 };
 

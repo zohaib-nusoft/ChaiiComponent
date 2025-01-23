@@ -17,6 +17,7 @@ interface Props {
   children: React.ReactNode;
   headingIcon?: React.ReactNode;
   isLoading?: boolean;
+  isSpining?: boolean;
 }
 
 const Modal: React.FC<Props> = forwardRef(
@@ -30,6 +31,7 @@ const Modal: React.FC<Props> = forwardRef(
       onOk,
       headingIcon,
       isLoading,
+      isSpining,
     },
     ref
   ) => {
@@ -69,8 +71,18 @@ const Modal: React.FC<Props> = forwardRef(
         okText={okText}
         footer={
           <Content className="w-100 d-flex gap-2 justify-content-end">
-            <Button onClick={onCloseModal} label="Cancel" btnClass="whiteBtn" />
-            <Button onClick={onOkModal} label={okText} btnClass="filledBtn" />
+            <Button
+              disabled={isSpining}
+              onClick={onCloseModal}
+              label="Cancel"
+              btnClass="whiteBtn"
+            />
+            <Button
+              disabled={isSpining}
+              onClick={onOkModal}
+              label={okText}
+              btnClass="filledBtn"
+            />
           </Content>
         }
       >

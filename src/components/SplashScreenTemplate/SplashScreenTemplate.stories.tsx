@@ -1,6 +1,6 @@
-import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { MemoryRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import { MemoryRouter, Route, Routes } from "react-router-dom";
 import SplashScreenTemplate from "./SplashScreenTemplate";
 
 const meta: Meta<typeof SplashScreenTemplate> = {
@@ -42,7 +42,7 @@ export const CustomRoot: Story = {
     children: "Custom Splash Screen Content",
     backgroundImagePath: "/assets/images/background1.jpg",
     logoPath: "/assets/svg/LogoBlack.svg",
-    copyrightText: "© 2024 Your Company. All rights reserved.",
+    copyrightText: "© 2025 Your Company. All rights reserved.",
   },
 };
 

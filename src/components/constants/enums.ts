@@ -15,3 +15,30 @@ export enum ACTION {
   RESTRICT = "Restrict",
   DELETE = "Delete",
 }
+
+export enum STATUS {
+  ERROR = "Error",
+  SUCCESS = "Success",
+  WARNING = "Warning",
+  DEFAULT = "Default",
+  PROCESSING = "Processing",
+}
+
+export enum PAYMENT_STATUS {
+  PENDING = "Pending payment",
+  REVISION = "Revision requested",
+  APPROVED = "Approved",
+  CONFIRMATION_PENDING = "Confirmation Pending",
+}
+
+export enum TIMESHEET_STATUS {
+  PENDING = "Pending Approval",
+  REVISION = "Revision Requested",
+  DRAFT = "Draft",
+}
+
+export enum INVOICES_STATUS {
+  PENDING = "Pending",
+  INTRANSIT = "In trasit",
+  Paid = "Paid",
+}
