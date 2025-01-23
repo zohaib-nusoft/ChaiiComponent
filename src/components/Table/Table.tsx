@@ -110,7 +110,10 @@ const SimpleTable: React.FC<inputProps> = ({
   }rem)`;
 
   return (
-    <Content className={`${styles.tableContainer} d-flex flex-column p-2`}>
+    <Content
+      style={{ flexGrow: 1 }}
+      className={`${styles.tableContainer}  d-flex flex-column p-2`}
+    >
       <Row className={`d-flex align-items-center  justify-content-between`}>
         <Col
           span={24}
@@ -178,7 +181,7 @@ const SimpleTable: React.FC<inputProps> = ({
         size="middle"
         scroll={{
           y: staticHeight ? undefined : tableHeightScroll,
-          x: undefined,
+          x: "min-content",
         }}
         onRow={(record) => {
           return {
